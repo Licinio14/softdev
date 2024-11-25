@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner in = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
 
         int menu1;
@@ -44,13 +44,31 @@ public class Main {
 
     }
 
-    private static void Jogo() {
+    private static void Jogo() throws InterruptedException {
         int resposta = 0, ai = 0;
 
         do {
 
             System.out.println("Escolha uma opção: \n 1 - Pedra\n 2 - Papel\n 3 - Tesoura\n 0 - Terminar");
             resposta = in.nextInt();
+
+            if (resposta == 1 || resposta == 2 || resposta == 3){
+                System.out.print("Pedra ");
+                // faz pausa por "x" milisegundos
+                Thread.sleep(100);
+                System.out.print("...");
+                Thread.sleep(100);
+                System.out.print("Papel ");
+                Thread.sleep(100);
+                System.out.print("...");
+                Thread.sleep(100);
+                System.out.print("Tesoura ");
+                Thread.sleep(100);
+                System.out.print("...\n");
+                Thread.sleep(600);
+            }
+
+
             ai = (int) (Math.random() * 3);
 
             if (resposta == 1 || resposta == 2 || resposta == 3){
@@ -128,6 +146,19 @@ public class Main {
                     System.out.println("Insira uma resposta valida!!!");
                     break;
             }
+
+            if (resposta == 1 || resposta == 2 || resposta == 3){
+                System.out.print("\n");
+
+                for (int i = 0; i <= 40; i++) {
+                    System.out.print("...");
+                    Thread.sleep(100);
+                }
+
+                System.out.println("\n");
+                clear();
+            }
+
 
 
         } while (resposta != 0);
