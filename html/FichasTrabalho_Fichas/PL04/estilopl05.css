@@ -2,14 +2,25 @@ header{
     position: sticky;
     top: 0;
     background-color: white;
+    font-family: 'Lucida Sans';
 }
+
+.footer{
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(165, 165, 165);
+    font-family: 'Lucida Sans';
+}
+
 H1{
     
     font-family: Georgia;
 }
 
 a:link{
-    color: white;
+    color: black;
 }
 
 a:visited{
@@ -54,3 +65,19 @@ p{
 .float{
     float: left;
 }
+
+i{
+    color: blue;
+}
+
+.googlefonts{
+    font-family: "Permanent Marker", cursive;
+    font-style: normal;
+}
+
+.jaro{
+    font-family: "Jaro", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
