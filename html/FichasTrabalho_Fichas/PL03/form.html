@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="icon" href="imagens/form.png" type="image/png">
+</head>
+<body>
+
+    <Header style="text-align: center;">
+        <!--logo, link para o site oficial e linha-->
+        <img src="imagens/logo_cesae.png" height="80">
+    </Header>
+    <nav>
+    <a href="https://www.cesaedigital.pt" target="_blank"><br>Ir para o site oficial</a>
+    &nbsp;&nbsp;&nbsp;<a href="multimedia.html" target="_blank">Ir para multimedia</a>
+    &nbsp;&nbsp;&nbsp;<a href="exercicio.html" target="_blank">Ir para a home<br></a>
+    <a href="https://www.facebook.com/CesaeDigital" target="_blank"><img src="imagens/facebook.webp" height="30"></a>
+    <a href="https://www.linkedin.com/company/cesae-digital/mycompany/" target="_blank"><img src="imagens/linkedin.png" height="30"></a>
+    <a href="https://www.youtube.com/user/CESAECanal" target="_blank"><img src="imagens/youtube.jpg" height="30"></a>
+    </nav>
+
+    <main>
+
+        <Form style="width: 50%;">
+            <fieldset>
+                <legend>Formulário de contacto do CESAE</legend>
+                <label>Nome: </label>
+                <input type="text" placeholder="Insira o seu nome aqui" required>
+                <br>
+                <label>Email: </label>
+                <input type="email" required>
+                <br><br>
+                <label>Género: </label>
+                <br>
+                <label><input type="radio" name="escolha" value="Masculino"> Masculino</label>
+                <br>
+                <label><input type="radio" name="escolha" value="Feminino"> Feminino</label>
+                <br><br>
+                <label>Data atual: </label>
+                <input type="date">
+                <br>
+                <label>Turma: </label>
+                <select id="turma" name="turma">
+                    <option value="Web Developer & Mobile" selected>Web Developer & Mobile</option>
+                    <option value="outra">Outra</option>
+                </select>
+                <br>
+                <label>Mensagem: </label>
+                <textarea id="mensagem" name="mensagem" cols="30" rows="3"></textarea>
+                <br>
+                <button type="reset">Limpar</button>
+                <button type="submit">Enviar</button>
+
+    
+            </fieldset>
+        </Form>
+
+    </main>
+    <footer>
+        <h2><b>Associados</b></h2>
+        <!-- imagens dos associados -->
+        <img src="imagens/Logo-IEFP.jpg" height="60">
+        <img src="imagens/aep-logo-novo.png" height="45">
+        <hr>
+        <p>Desenvolvido por Licinio Sousa</p>
+        </footer>
+
+</body>
+</html>
