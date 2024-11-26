@@ -1,9 +1,11 @@
+import javax.swing.*;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static Scanner in = new Scanner(System.in);
+    static double div, num1, num2, mul, soma, sub;
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -11,7 +13,7 @@ public class Main {
         int menu1;
 
         do {
-            System.out.println("Bem-vindo\nEscolha uma opção:\n1 - Calculadora\n2 - lista\n3 - Calendário\n4 - Jogar Pedra-papel-tesoura\n0 - Sair");
+            System.out.println("Bem-vindo\nEscolha uma opção:\n1 - Calculadora\n2 - lista\n3 - Calendário\n4 - Jogar Pedra-papel-tesoura\n5 - Dizer Ola\n0 - Sair");
             menu1 = in.nextInt();
 
             switch (menu1) {
@@ -33,6 +35,10 @@ public class Main {
                     clear();
                     Jogo();
                     break;
+                case 5:
+                    clear();
+                    Dizerola();
+                    break;
                 default:
                     System.out.println("Insira uma opção válida!!!");
                     break;
@@ -44,6 +50,13 @@ public class Main {
 
     }
 
+    private static void Dizerola() {
+
+        String nome = JOptionPane.showInputDialog("Insira o seu nome");
+        JOptionPane.showMessageDialog(null, "Olá " + nome);
+
+    }
+
     private static void Jogo() throws InterruptedException {
         int resposta = 0, ai = 0;
 
@@ -52,7 +65,7 @@ public class Main {
             System.out.println("Escolha uma opção: \n 1 - Pedra\n 2 - Papel\n 3 - Tesoura\n 0 - Terminar");
             resposta = in.nextInt();
 
-            if (resposta == 1 || resposta == 2 || resposta == 3){
+            if (resposta == 1 || resposta == 2 || resposta == 3) {
                 System.out.print("Pedra ");
                 // faz pausa por "x" milisegundos
                 Thread.sleep(100);
@@ -71,7 +84,7 @@ public class Main {
 
             ai = (int) (Math.random() * 3);
 
-            if (resposta == 1 || resposta == 2 || resposta == 3){
+            if (resposta == 1 || resposta == 2 || resposta == 3) {
                 switch (ai) {
                     case 0:
                         System.out.println("Computador: Pedra");
@@ -91,7 +104,7 @@ public class Main {
             switch (resposta) {
                 case 0:
                     break;
-                    // 0 - Pedra / 1 - Papel / 2 - Tesoura
+                // 0 - Pedra / 1 - Papel / 2 - Tesoura
                 case 1:
                     switch (ai) {
                         case 0:
@@ -108,7 +121,7 @@ public class Main {
                             break;
                     }
                     break;
-                    // 0 - Pedra / 1 - Papel / 2 - Tesoura
+                // 0 - Pedra / 1 - Papel / 2 - Tesoura
                 case 2:
                     switch (ai) {
                         case 0:
@@ -125,7 +138,7 @@ public class Main {
                             break;
                     }
                     break;
-                    // 0 - Pedra / 1 - Papel / 2 - Tesoura
+                // 0 - Pedra / 1 - Papel / 2 - Tesoura
                 case 3:
                     switch (ai) {
                         case 0:
@@ -147,7 +160,7 @@ public class Main {
                     break;
             }
 
-            if (resposta == 1 || resposta == 2 || resposta == 3){
+            if (resposta == 1 || resposta == 2 || resposta == 3) {
                 System.out.print("\n");
 
                 for (int i = 0; i <= 40; i++) {
@@ -158,7 +171,6 @@ public class Main {
                 System.out.println("\n");
                 clear();
             }
-
 
 
         } while (resposta != 0);
@@ -179,19 +191,23 @@ public class Main {
                     break;
                 case 1:
                     clear();
-                    Somar();
+                    Operacao("+");
+                    //Somar();
                     break;
                 case 2:
                     clear();
-                    Subtrair();
+                    Operacao("-");
+                    //Subtrair();
                     break;
                 case 3:
                     clear();
-                    Multiplicar();
+                    Operacao("*");
+                    //Multiplicar();
                     break;
                 case 4:
                     clear();
-                    Dividir();
+                    Operacao("/");
+                    //Dividir();
                     break;
                 default:
                     System.out.println("Insira uma opção válida!!!");
@@ -200,46 +216,61 @@ public class Main {
         } while (menu2 != 0);
     }
 
+    private static void Operacao(String operacao){
+
+        num1 = Inputnumero();
+        num2 = Inputnumero();
+        double resultado = switch (operacao){
+            case "+" -> num1 + num2;
+            case "-" -> num1 - num2;
+            case "*" -> num1 * num2;
+            default -> num1 / num2;
+        };
+        System.out.println("");
+        if(operacao.equals("+")){
+            System.out.println(num1 + " + " + num2 + " = " + resultado);
+        } else if (operacao == "-") {
+            System.out.println(num1 + " - " + num2 + " = " + resultado);
+        } else if (operacao == "*") {
+            System.out.println(num1 + " * " + num2 + " = " + resultado);
+        } else if (operacao == "/") {
+            System.out.println(num1 + " / " + num2 + " = " + resultado);
+        }
+
+
+    }
+
+    private static double Inputnumero() {
+        System.out.println("Insira um número: ");
+        return in.nextDouble();
+    }
+
     private static void Dividir() {
-        double div, num1, num2;
-        System.out.println("Insira os dois números para somar");
-        System.out.println("Insira o 1º número: ");
-        num1 = in.nextDouble();
-        System.out.println("Insira o 2º número: ");
-        num2 = in.nextDouble();
+
+        num1 = Inputnumero();
+        num2 = Inputnumero();
         div = num1 / num2;
         System.out.println("A divisão entre os números " + num1 + " e " + num2 + " é " + div);
     }
 
     private static void Multiplicar() {
-        double mul, num1, num2;
-        System.out.println("Insira os dois números para somar");
-        System.out.println("Insira o 1º número: ");
-        num1 = in.nextDouble();
-        System.out.println("Insira o 2º número: ");
-        num2 = in.nextDouble();
+        num1 = Inputnumero();
+        num2 = Inputnumero();
+        ;
         mul = num1 * num2;
         System.out.println("A multiplicação entre os números " + num1 + " e " + num2 + " é " + mul);
     }
 
     private static void Somar() {
-        double soma, num1, num2;
-        System.out.println("Insira os dois números para somar");
-        System.out.println("Insira o 1º número: ");
-        num1 = in.nextDouble();
-        System.out.println("Insira o 2º número: ");
-        num2 = in.nextDouble();
+        num1 = Inputnumero();
+        num2 = Inputnumero();
         soma = num1 + num2;
         System.out.println("A soma entre os números " + num1 + " e " + num2 + " é " + soma);
     }
 
     private static void Subtrair() {
-        double sub, num1, num2;
-        System.out.println("Insira os dois números para subtrair");
-        System.out.println("Insira o 1º número: ");
-        num1 = in.nextDouble();
-        System.out.println("Insira o 2º número: ");
-        num2 = in.nextDouble();
+        num1 = Inputnumero();
+        num2 = Inputnumero();
         sub = num1 - num2;
         System.out.println("A subtração ente os números " + num1 + " e " + num2 + " é " + sub);
     }
@@ -256,15 +287,22 @@ public class Main {
 
         if (num1 < num2) {
             for (int i = num1; i <= num2; i++) {
-                System.out.println(i);
+                System.out.print(i + "\t");
+                if (i % 10 == 0) {
+                    System.out.println("\n");
+                }
             }
         } else if (num1 == num2) {
             System.out.println("Os números sao iguais");
         } else {
             for (int i = num1; i >= num2; i--) {
-                System.out.println(i);
+                System.out.print(i + "\t");
+                if (i % 10 == 0) {
+                    System.out.println("\n");
+                }
             }
         }
+        System.out.println("\n");
     }
 
     private static void Calendario() {
@@ -362,6 +400,5 @@ public class Main {
             System.out.println("\n");
         }
     }
-    
 
 }
