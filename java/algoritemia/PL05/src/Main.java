@@ -67,7 +67,7 @@ public class Main {
     }
 
     private static void Sozinho(int multi) {
-        int jogo = 21, resposta = 0, escolha = 0, ai = 0, max = 0, teste = 0;
+        int jogo = 21, resposta = 0, escolha = 0, ai = 0, max = 0, teste = 0,teste2 = 0;
         boolean vali = true, vali2 = true, acabou = false;
 
         if (multi != 1){
@@ -85,6 +85,7 @@ public class Main {
                 System.out.println("Computador: " + ai);
                 jogo -= ai;
                 teste = ai;
+                teste2 = 1;
             }
 
 
@@ -159,7 +160,8 @@ public class Main {
 
                     System.out.println("\nTotal de fósforos: " + jogo);
 
-                        //tentar ganhar
+                    if (teste2 == 1){
+                        //tentar ganhar se começar
                         if(teste < 5){
                             ai = 5 - teste;
                             teste = 0;
@@ -170,6 +172,25 @@ public class Main {
                             ai = 10 - teste;
                             teste = 0;
                         }
+                    }else {
+
+
+                            //tentar ganhar se começar
+                            if(teste < 5){
+                                ai = 5 - teste;
+                                teste = 0;
+                            }else if(teste == 5){
+                                ai = rnd.nextInt(1, 5);
+                                teste = 0;
+                            } else if (teste > 5) {
+                                ai = 10 - teste;
+                                teste = 0;
+                            }
+
+                    }
+
+
+
 
                     System.out.println("Computador: " + ai);
                     jogo -= ai;
