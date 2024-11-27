@@ -67,7 +67,7 @@ public class Main {
     }
 
     private static void Sozinho(int multi) {
-        int jogo = 21, resposta = 0, escolha = 0, ai = 0, max = 0;
+        int jogo = 21, resposta = 0, escolha = 0, ai = 0, max = 0, teste = 0;
         boolean vali = true, vali2 = true, acabou = false;
 
         if (multi != 1){
@@ -81,9 +81,10 @@ public class Main {
             if (escolha == 2) {
                 escolha = 0;
                 ai = rnd.nextInt(1, 5);
-                System.out.println("Total de fósforos: " + jogo);
+                System.out.println("\nTotal de fósforos: " + jogo);
                 System.out.println("Computador: " + ai);
                 jogo -= ai;
+                teste = ai;
             }
 
 
@@ -104,12 +105,13 @@ public class Main {
                     if (multi == 1){
                         System.out.println("Jogador 1: ");
                     }
-                    System.out.println("Total de fósforos: " + jogo);
+                    System.out.println("\nTotal de fósforos: " + jogo);
                     System.out.println("Escolha uma opção entre 1 e 4");
                     System.out.println("Quantos deseja pegar?");
                     resposta = in.nextInt();
 
                     if (resposta > 0 && resposta <= 4) {
+                        teste += resposta;
                         jogo -= resposta;
                         vali2 = false;
                     } else {
@@ -130,7 +132,7 @@ public class Main {
 
                     do {
                         System.out.println("Jogador 2: ");
-                        System.out.println("Total de fósforos: " + jogo);
+                        System.out.println("\nTotal de fósforos: " + jogo);
                         System.out.println("Escolha uma opção entre 1 e 4");
                         System.out.println("Quantos deseja pegar?");
                         resposta = in.nextInt();
@@ -153,14 +155,21 @@ public class Main {
                     System.out.println("Perdeste, ficas-te com o ultimo fósforo!");
                     vali = false;
                 } else {
-                        System.out.println("Total de fósforos: " + jogo);
 
-                    if (jogo > 4){
-                        ai = rnd.nextInt(1, 5);
-                    }else {
-                        max = jogo;
-                        ai = rnd.nextInt(1, max + 1);
-                    }
+
+                    System.out.println("\nTotal de fósforos: " + jogo);
+
+                        //tentar ganhar
+                        if(teste < 5){
+                            ai = 5 - teste;
+                            teste = 0;
+                        }else if(teste == 5){
+                            ai = rnd.nextInt(1, 5);
+                            teste = 0;
+                        } else if (teste > 5) {
+                            ai = 10 - teste;
+                            teste = 0;
+                        }
 
                     System.out.println("Computador: " + ai);
                     jogo -= ai;

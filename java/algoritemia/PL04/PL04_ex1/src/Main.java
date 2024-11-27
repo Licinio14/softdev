@@ -194,9 +194,11 @@ public class Main {
         //retira o valor da raspadinha a conta
         contacorrent -= cusraspadinha;
 
+        //limpar ecra anterior
+        Clear();
         //esolher o numero principal
         resposta = rnd.nextInt(1,11);
-        System.out.println("Numero principal: |" + resposta + "| ");
+        System.out.println("\nNumero principal: |" + resposta + "| ");
 
         //escolher os numeros premiados
         for (int i =1; i<=5; i++){
@@ -230,11 +232,7 @@ public class Main {
         for (int i = 1; i <= 5; i++){
             System.out.print("---\t|" + premio[i][0] + "| = " + "|" + premio[i][1] + "€|\t");
         }
-        System.out.println();
-        /*for (int i = 1; i <= 5; i++){
-            System.out.print("\t|" + premio[i][1] + "€|\t");
-        }*/
-        System.out.println("\n");
+        System.out.println("\n\n");
 
 
         if (count == 0){
@@ -256,9 +254,11 @@ public class Main {
         //retira o valor da raspadinha a conta
         contacorrent -= cusraspadinha;
 
+        //limpar ecra anterior
+        Clear();
         //esolher o numero principal
         resposta = rnd.nextInt(1,11);
-        System.out.println("Numero principal: |" + resposta + "| ");
+        System.out.println("\nNumero principal: |" + resposta + "| ");
 
         //escolher os numeros premiados
         for (int i =1; i<=9; i++){
