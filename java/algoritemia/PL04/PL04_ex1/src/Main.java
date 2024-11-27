@@ -339,7 +339,7 @@ public class Main {
             System.out.println("PARABENS!!! Ganho o 3ª Premio! Ganhou 250€\n");
             contacorrent += 250;
         } else {
-            System.out.println("Infelizmente nao conseguio nenhum premio!\n");
+            System.out.println("Bilhete não premiado!\n");
         }
 
         Carregar(80);
