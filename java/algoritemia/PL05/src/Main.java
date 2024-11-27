@@ -52,10 +52,10 @@ public class Main {
                     vali = false;
                     break;
                 case 1:
-                    Sozinho(0);
+                    Fosforostipo(0);
                     break;
                 case 2:
-                    Sozinho(1);
+                    Fosforostipo(1);
                     break;
                 default:
                     System.out.println("Insira uma opção valida!!");
@@ -66,7 +66,7 @@ public class Main {
 
     }
 
-    private static void Sozinho(int multi) {
+    private static void Fosforostipo(int multi) {
         int jogo = 21, resposta = 0, escolha = 0, ai = 0, max = 0, teste = 0,teste2 = 0;
         boolean vali = true, vali2 = true, acabou = false;
 
