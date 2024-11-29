@@ -270,9 +270,13 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             vetor[i] = rnd.nextInt(1, 11);
         }
-
+        System.out.print("Array: ");
         for (int i = 0; i < 10; i++) {
-            for (int a = 0; a < 10; a++) {
+            System.out.print("|" + vetor[i] + "|\t");
+        }
+
+        for (int i = 0; i < vetor.length - 1; i++) {
+            for (int a = i + 1; a < vetor.length; a++) {
                 if (vetor[i] > vetor[a]) {
                     num = vetor[a];
                     vetor[a] = vetor[i];
@@ -281,10 +285,15 @@ public class Main {
             }
         }
 
+        System.out.print("\nArray crescente: ");
         for (int i = 0; i < 10; i++) {
             System.out.print("|" + vetor[i] + "|\t");
         }
-        System.out.println("\n");
+
+
+        //Arrays.sort(vetor, );
+
+        System.out.print("\nArray decrescente: ");
         for (int i = 9; i >= 0; i--) {
             System.out.print("|" + vetor[i] + "|\t");
         }
@@ -388,7 +397,7 @@ public class Main {
                             }
                         } while (vali3);
 
-                        System.out.println("É o aluno: " + ex1[resposta]);
+                        System.out.println("É o aluno: " + ex1[resposta - 1]);
                     } else {
                         System.out.println("Ainda nao exitem alunos inseridos");
 
