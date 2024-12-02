@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -179,8 +180,19 @@ public class Main {
         char[] vetor2 = new char[10];
 
         do {
-            System.out.println("|1 - Inserir nomes|\t|2 - Listar nomes|\t|3 - Listar letras|\t|0 - Sair|");
-            menu = in.nextInt();
+
+            do {
+                System.out.println("|1 - Inserir nomes|\t|2 - Listar nomes|\t|3 - Listar letras|\t|0 - Sair|");
+                try {
+                    menu = in.nextInt();
+                } catch (InputMismatchException e){
+                    System.out.println("Insira apenas numeros");
+                    in = new Scanner(System.in);
+                } //catch (Exception e) {
+                    //tenta apanhar de uma forma variada
+                //}
+            }while (menu != 0 && menu != 1 && menu != 2);
+
             switch (menu) {
                 case 0:
                     vali = false;
@@ -212,7 +224,11 @@ public class Main {
                             System.out.println(vetor[i]);
                         }
                     } else {
-                        System.out.println("Ainda nao foram inseridos nomes!");
+                        try {
+                            System.out.println("Ainda nao foram inseridos nomes!");
+                        }catch (NullPointerException e){
+                            System.out.println("Array ainda nao preenchido");
+                        }
                     }
                     break;
                 case 3:

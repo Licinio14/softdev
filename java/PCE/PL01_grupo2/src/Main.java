@@ -341,10 +341,16 @@ public class Main {
         //Crie um programa que utilize um array multidimensional que simule a tabuada de 10x10. Deve utilizar ciclos para
         //preenchimento do array e aquando da execução da aplicação escrever a todo o array.
 
-        int[][] tabuada = new int[10][10];
 
-        for (int b = 0; b < 10; b++) {
-            for (int a = 0; a < 10; a++) {
+        System.out.println("quantas linhas quer?");
+        int linha = in.nextInt();
+        System.out.println("quantas colunas quer?");
+        int coluna = in.nextInt();
+
+        int[][] tabuada = new int[linha][coluna];
+
+        for (int b = 0; b < linha; b++) {
+            for (int a = 0; a < coluna; a++) {
 
                 tabuada[b][a] = (b + 1) * (a + 1);
 
@@ -352,8 +358,8 @@ public class Main {
         }
 
 
-        for (int b = 0; b < 10; b++) {
-            for (int a = 0; a < 10; a++) {
+        for (int b = 0; b < linha; b++) {
+            for (int a = 0; a < coluna; a++) {
 
                 System.out.print("| " + tabuada[b][a] + " |\t");
 
