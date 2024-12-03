@@ -1,0 +1,40 @@
+Look into how software developers approach problem-solving
+
+
+1. Understand the Problem
+Clarify Requirements: Developers gather detailed information about the problem, often by asking questions and consulting stakeholders to understand the desired outcome.
+Break Down the Problem: They divide complex problems into smaller, manageable parts to make analysis and implementation easier.
+
+2. Research and Analyze
+Gather Knowledge: Developers look into existing documentation, relevant technologies, or similar problems and their solutions.
+Understand Constraints: They identify limitations like time, resources, or technical dependencies that may influence the solution.
+Root Cause Analysis: For debugging or fixing issues, developers use techniques like the "5 Whys" or fishbone diagrams to pinpoint the problem's origin.
+
+3. Plan and Design
+Define Objectives: Clearly outline what success looks like.
+Choose the Right Tools: Decide on the programming language, frameworks, or libraries best suited to the task.
+Design the Solution: Create a blueprint using flowcharts, pseudocode, or architecture diagrams. Developers might also write user stories or test cases at this stage.
+
+4. Develop a Solution
+Iterative Development: Use approaches like Agile or iterative development to build and test small parts of the solution incrementally.
+Write Clean Code: Emphasize clarity, modularity, and maintainability in the codebase.
+Version Control: Use tools like Git to track changes and collaborate efficiently.
+
+5. Test and Validate
+Unit Testing: Test individual components for expected functionality.
+Integration Testing: Ensure that different parts of the system work together.
+User Testing: Validate the solution with stakeholders or end-users to confirm it meets requirements.
+
+6. Iterate and Optimize
+Debug: Identify and fix any issues uncovered during testing.
+Optimize: Improve performance, scalability, or usability.
+Refactor: Clean and restructure code for better readability and future-proofing.
+
+7. Implement and Monitor
+Deploy the Solution: Release the solution into the intended environment.
+Monitor Performance: Track metrics or use feedback loops to ensure the solution works as expected.
+Maintenance: Address any ongoing issues or updates as they arise.
+
+8. Reflect and Document
+Learn from the Process: Evaluate what worked well and what could be improved for future projects.
+Document the Solution: Write clear documentation for users, collaborators, and future developers.
