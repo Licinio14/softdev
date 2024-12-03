@@ -127,7 +127,7 @@ public class Main {
 
             System.out.print("|1-Media por linha|");
             System.out.print("\t|2-Media por coluna|");
-            System.out.print("\t|2-Media de tudo|");
+            System.out.print("\t|3-Media de tudo|");
             System.out.print("\t|0-Sair|");
             System.out.println();
             op = in.nextInt();
@@ -144,6 +144,7 @@ public class Main {
                         for (int a = 0; a < colunas; a++) {
 
                             soma += arraw[b][a];
+                            System.out.print("|" + arraw[b][a] + "|");
 
                         }
                         media = soma / linha;
@@ -159,6 +160,7 @@ public class Main {
                         for (int a = 0; a < linha; a++) {
 
                             soma += arraw[a][b];
+                            System.out.print("|" + arraw[a][b] + "|");
 
                         }
                         media = soma / linha;
@@ -171,11 +173,12 @@ public class Main {
                     int total = 0;
                     for (int b = 0; b < linha; b++) {
                         for (int a = 0; a < colunas; a++) {
-
+                            System.out.print("|" + arraw[b][a] + "|");
                             soma += arraw[b][a];
                             total++;
 
                         }
+                        System.out.println();
                     }
                     media = soma / total;
                     System.out.println("A media de tudo é: " + media);
@@ -199,7 +202,7 @@ public class Main {
 
             System.out.print("|1-Somar por linha|");
             System.out.print("\t|2-Somar por coluna|");
-            System.out.print("\t|2-Somar tudo|");
+            System.out.print("\t|3-Somar tudo|");
             System.out.print("\t|0-Sair|");
             System.out.println();
             op = in.nextInt();
@@ -214,7 +217,7 @@ public class Main {
 
                     for (int b = 0; b < linha; b++) {
                         for (int a = 0; a < colunas; a++) {
-
+                            System.out.print("|"+arraw[b][a] + "|\t");
                             soma += arraw[b][a];
 
                         }
@@ -227,28 +230,29 @@ public class Main {
                 case 2:
                     Clear();
 
-                    for (int b = 0; b < linha; b++){
-                        for (int a = 0; a < colunas; a++){
-                            if (a == (colunas - 1)){
-                                soma += arraw[b][a];
-                                System.out.println("A soma da " + b + "ª coluna é: " + soma);
-                                soma = 0;
-                            }else {
-                                soma += arraw[b][a];
-                            }
+                    for (int b = 0; b < colunas; b++) {
+                        for (int a = 0; a < linha; a++) {
+
+                            soma += arraw[a][b];
+                            System.out.print("|"+arraw[a][b] + "|\t");
+
                         }
 
+                        System.out.println("A soma da " + b + "ª coluna é: " + soma);
+                        soma = 0;
                     }
 
                     break;
                 case 3:
                     for (int b = 0; b < linha; b++) {
                         for (int a = 0; a < colunas; a++) {
-
+                            System.out.print("|" + arraw[b][a] + "|");
                             soma += arraw[b][a];
 
                         }
+                        System.out.println();
                     }
+
                     System.out.println("A soma de tudo é: " + soma);
                     soma = 0;
                     break;
@@ -321,7 +325,7 @@ public class Main {
         for (int b = 0; b < 3; b++) {
             for (int a = 0; a < 3; a++) {
 
-                arraw[b][a] = rnd.nextInt(1, 101);
+                arraw[b][a] = rnd.nextInt(10);
 
             }
         }

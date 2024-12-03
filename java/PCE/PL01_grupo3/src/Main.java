@@ -73,6 +73,7 @@ public class Main {
         int[] teste = new int[array.length - 1];
 
         do{
+            Imprimir();
             System.out.println("Qual é a posição que pretende apagar? Escolha entre 1 e " + max);
             try{
                 respo = in.nextInt();
@@ -115,6 +116,7 @@ public class Main {
         int respo = 0;
 
         do {
+            Imprimir();
             System.out.println("Em que posição pretende adicionar? Entre 1 e " + max);
 
             try{
@@ -174,6 +176,7 @@ public class Main {
     private static void Substituir() {
         boolean vali = true, vali2 = true;
         do{
+            Imprimir();
             System.out.println("As posições possiveis sao de 1 a " + max);
             System.out.println("Escolha uma posição: ");
             try {
@@ -241,7 +244,7 @@ public class Main {
 
     private static void Imprimir() {
         for (int i = 0; i < max; i++){
-            System.out.print("|" + array[i] + "|\t");
+            System.out.println("Posição " + (i+1) + " = " + "|" + array[i] + "|\t");
         }
         System.out.println();
     }
