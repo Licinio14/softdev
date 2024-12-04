@@ -1,0 +1,16 @@
+primeiro
+segundo
+terceiro
+quarto
+quinto
+sexto
+setimo
+oitavo
+nono
+decimo
+texto de teste de escrita num ficheiro
+ola
+into
+é
+um
+teste

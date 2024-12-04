@@ -70,6 +70,12 @@ public class Main {
 
         boolean vali = true;
         int respo = 0;
+
+        if (array.length == 0){
+            System.out.println("Array vazio!");
+            return;
+        }
+
         int[] teste = new int[array.length - 1];
 
         do{
