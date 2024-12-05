@@ -144,13 +144,11 @@ public class Main {
 
     private static void LerString() throws IOException {
         //Ler um ficheiro de texto para uma única string e o apresente o seu conteúdo.
-        String texto;
+        String texto = "";
 
         BufferedReader br = new BufferedReader(new FileReader("texto.txt"));
-        linha = br.readLine();
-        texto = linha;
-        while (linha != null){
-            linha = br.readLine();
+
+        while ((linha = br.readLine()) != null){
             texto += linha;
             texto +="\n";
 
