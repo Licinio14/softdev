@@ -1,3 +1,5 @@
-Liciino
-Ana
-Nando
+Licinio;14;11;18
+Ana;12;18;16
+Manuel;10;20;19
+Marta;14;11;17
+Marco;12;14;17
