@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class Main {
@@ -9,6 +10,10 @@ public class Main {
     static ArrayList<String> tb1 = new ArrayList<>();
     static ArrayList<String> tb2 = new ArrayList<>();
     static ArrayList<String> exam = new ArrayList<>();
+    static ArrayList<String> classi = new ArrayList<>();
+    static int mbcount = 0, counttb1 = 0, counttb2 = 0, countexam = 0, countfinal = 0;
+    static double maiornota = 0, menornota = 0, tb1m = 0, tb2m = 0, exampm = 0, finalm = 0, tb1p = 0, tb2p = 0, examp = 0,finalp;
+    static double[] notafinal = new double[20];
 
 
     public static void main(String[] args) {
@@ -59,20 +64,117 @@ public class Main {
 
         Classificacao();
 
+        ArrayList<String> tem = new ArrayList<>();
+        tem.add("Nome\t\t\tClassificação");
+        for (int i = 0; i < nomes.size(); i++) {
+            tem.add(nomes.get(i) + "\t\t\t" + classi.get(i));
+        }
+        tem.add("******************************************************************");
+        tem.add("Melhor Nota Final: " + maiornota + " valores");
+        tem.add("Pior Nota Final: " + menornota + " valores");
+        tem.add("Percentagens de Notas Positivas:");
+        tem.add("Trabalho 1: " + tb1p + "%");
+        tem.add("Trabalho 2: " + tb2p + "%");
+        tem.add("Exame: " + examp + "%");
+        tem.add("Final: " + finalp + "%");
+        tem.add("Médias das Notas:");
+        tem.add("Trabalho 1: " + tb1m + " valores");
+        tem.add("Trabalho 2: " + tb2m + " valores");
+        tem.add("Exame: " + exampm + " valores");
+        tem.add("Final: " + finalm + " valores");
+        tem.add(mbcount + " alunos com classificação Muito Bom");
+        try{
+            Files.write(Path.of("output.txt"),tem);
+        }catch (IOException e){
+            System.out.println("Erro a escrever no ficheiro!");
+        }
+        for (String s : tem) {
+            System.out.println(s);
+        }
+
 
     }
 
     private static void Classificacao() {
-        double nota = 0;
-        ArrayList<String> classi = new ArrayList<>();
+        //garantir que tudo ta a 0
+        mbcount = 0; tb1p = 0; tb2p = 0; examp = 0;finalp = 0; counttb1 = 0; counttb2 = 0; countexam = 0; countfinal = 0;
+        maiornota = 0; menornota = 0; tb1m = 0; tb2m = 0; exampm = 0; finalm = 0;
+        notafinal = new double[nomes.size()];
+        int max = nomes.size();
+        DecimalFormat df = new DecimalFormat("#.##");
 
+        // preencher a nota final e as classificaçoes nos arrays
         for (int i = 0; i < nomes.size(); i++) {
             int n1 = Integer.parseInt(tb1.get(i));
             int n2 = Integer.parseInt(tb2.get(i));
             int n3 = Integer.parseInt(exam.get(i));
-            nota = (n1 * 0.2) + (n2 * 0.2) + (n3 * 0.6);
-            ///  mandar para o array acima se é bom, muito bom...
+            notafinal[i] = (n1 * 0.2) + (n2 * 0.2) + (n3 * 0.6);
+
+            if (i == 0){
+                maiornota = notafinal[i];
+                menornota = notafinal[i];
+            } else {
+                if (notafinal[i] > maiornota){
+                    maiornota = notafinal[i];
+                }
+                if (notafinal[i] < menornota){
+                    menornota = notafinal[i];
+                }
+            }
+
+
+            if (notafinal[i] < 5 ) {
+                classi.add("Muito fraco");
+            } else if (notafinal[i] >= 5 && notafinal[i] < 10) {
+                classi.add("Fraco");
+            } else if (notafinal[i] >= 10 && notafinal[i] < 13) {
+                classi.add("Suficiente");
+            } else if (notafinal[i] >= 13 && notafinal[i] < 17) {
+                classi.add("Bom");
+            }else if (notafinal[i] >= 17 && notafinal[i] <= 20) {
+                classi.add("Muit Bom");
+                mbcount++;
+            }
         }
+
+        //conta as positivas
+        for (int i = 0; i < nomes.size(); i++) {
+            int n1 = Integer.parseInt(tb1.get(i));
+            int n2 = Integer.parseInt(tb2.get(i));
+            int n3 = Integer.parseInt(exam.get(i));
+
+            if (n1 >= 10){
+                counttb1++;
+            }
+            if (n2 >= 10){
+                counttb2++;
+            }
+            if (n3 >= 10){
+                countexam++;
+            }
+            if (notafinal[i] >= 10){
+                countfinal++;
+            }
+
+            tb1m += n1;
+            tb2m += n2;
+            exampm += n3;
+            finalm += notafinal[i];
+
+
+        }
+
+        //calcula a percentagem
+        tb1p = Double.parseDouble(df.format((double) counttb1 / max * 100));
+        tb2p = Double.parseDouble(df.format((double) counttb2 / max * 100));
+        examp = Double.parseDouble(df.format((double) countexam / max * 100));
+        finalp = Double.parseDouble(df.format((double) countfinal / max * 100));
+
+        //calcula a media
+        tb1m = Double.parseDouble(df.format(tb1m / nomes.size()));
+        tb2m = Double.parseDouble(df.format(tb2m / nomes.size()));
+        exampm = Double.parseDouble(df.format(exampm / nomes.size()));
+        finalm = Double.parseDouble(df.format(finalm / nomes.size()));
 
 
     }

@@ -3,3 +3,5 @@ Ana;12;18;16
 Manuel;10;20;19
 Marta;14;11;17
 Marco;12;14;17
+Pedro;4;3;7
+Alexandre;9;4;5
