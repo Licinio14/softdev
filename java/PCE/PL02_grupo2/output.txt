@@ -1,22 +1,23 @@
 Nome			Classificação
 Licinio			Bom
-Ana			Bom
+Ana			Muito fraco
 Manuel			Muit Bom
 Marta			Bom
 Marco			Bom
 Pedro			Fraco
 Alexandre			Fraco
+Laura			Bom
 ******************************************************************
 Melhor Nota Final: 17.4 valores
-Pior Nota Final: 5.6 valores
+Pior Nota Final: 1.56 valores
 Percentagens de Notas Positivas:
-Trabalho 1: 71.43%
-Trabalho 2: 71.43%
-Exame: 71.43%
-Final: 71.43%
+Trabalho 1: 62.5%
+Trabalho 2: 62.5%
+Exame: 62.5%
+Final: 62.5%
 Médias das Notas:
-Trabalho 1: 10.71 valores
-Trabalho 2: 11.57 valores
-Exame: 14.14 valores
-Final: 12.94 valores
+Trabalho 1: 10.05 valores
+Trabalho 2: 9.61 valores
+Exame: 12.75 valores
+Final: 11.58 valores
 1 alunos com classificação Muito Bom

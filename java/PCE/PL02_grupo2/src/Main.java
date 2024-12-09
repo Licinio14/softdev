@@ -3,6 +3,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.*;
 
 public class Main {
@@ -101,13 +103,13 @@ public class Main {
         maiornota = 0; menornota = 0; tb1m = 0; tb2m = 0; exampm = 0; finalm = 0;
         notafinal = new double[nomes.size()];
         int max = nomes.size();
-        DecimalFormat df = new DecimalFormat("#.##");
+        //DecimalFormat df = new DecimalFormat("#.##");
 
         // preencher a nota final e as classificaçoes nos arrays
         for (int i = 0; i < nomes.size(); i++) {
-            int n1 = Integer.parseInt(tb1.get(i));
-            int n2 = Integer.parseInt(tb2.get(i));
-            int n3 = Integer.parseInt(exam.get(i));
+            double n1 = Double.parseDouble(tb1.get(i));
+            double n2 = Double.parseDouble(tb2.get(i));
+            double n3 = Double.parseDouble(exam.get(i));
             notafinal[i] = (n1 * 0.2) + (n2 * 0.2) + (n3 * 0.6);
 
             if (i == 0){
@@ -139,9 +141,9 @@ public class Main {
 
         //conta as positivas
         for (int i = 0; i < nomes.size(); i++) {
-            int n1 = Integer.parseInt(tb1.get(i));
-            int n2 = Integer.parseInt(tb2.get(i));
-            int n3 = Integer.parseInt(exam.get(i));
+            double n1 = Double.parseDouble(tb1.get(i));
+            double n2 = Double.parseDouble(tb2.get(i));
+            double n3 = Double.parseDouble(exam.get(i));
 
             if (n1 >= 10){
                 counttb1++;
@@ -163,9 +165,21 @@ public class Main {
 
 
         }
+        DecimalFormat df = new DecimalFormat("#.##", DecimalFormatSymbols.getInstance(Locale.US));
+            //calcula a percentagem
+            tb1p = Double.parseDouble(df.format( (double) counttb1 / max * 100));
+            tb2p = Double.parseDouble(df.format((double) counttb2 / max * 100));
+            examp = Double.parseDouble(df.format((double) countexam / max * 100));
+            finalp = Double.parseDouble(df.format((double) countfinal / max * 100));
+
+            //calcula a media
+            tb1m = Double.parseDouble(df.format(tb1m / nomes.size()));
+            tb2m = Double.parseDouble(df.format(tb2m / nomes.size()));
+            exampm = Double.parseDouble(df.format(exampm / nomes.size()));
+            finalm = Double.parseDouble(df.format(finalm / nomes.size()));
 
         //calcula a percentagem
-        tb1p = Double.parseDouble(df.format((double) counttb1 / max * 100));
+        /*tb1p = Double.parseDouble(df.format( (double) counttb1 / max * 100));
         tb2p = Double.parseDouble(df.format((double) counttb2 / max * 100));
         examp = Double.parseDouble(df.format((double) countexam / max * 100));
         finalp = Double.parseDouble(df.format((double) countfinal / max * 100));
@@ -174,8 +188,24 @@ public class Main {
         tb1m = Double.parseDouble(df.format(tb1m / nomes.size()));
         tb2m = Double.parseDouble(df.format(tb2m / nomes.size()));
         exampm = Double.parseDouble(df.format(exampm / nomes.size()));
-        finalm = Double.parseDouble(df.format(finalm / nomes.size()));
+        finalm = Double.parseDouble(df.format(finalm / nomes.size()));*/
 
+
+
+        /*
+        //calcula a percentagem
+        tb1p =  (double) counttb1 / max * 100;
+        tb2p = (double) counttb2 / max * 100;
+        examp = (double) countexam / max * 100;
+        finalp = (double) countfinal / max * 100;
+
+        //calcula a media
+        tb1m = tb1m / max;
+        tb2m = tb2m / max;
+        exampm = exampm / max;
+        finalm = finalm / max;
+
+         */
 
     }
 
@@ -313,7 +343,7 @@ public class Main {
 
     private static void InserirAlunos() {
         Scanner in = new Scanner(System.in);
-        int resp = 0;
+        double resp = 0;
         String resposta;
         boolean vali = true, vali2 = true;
 
@@ -326,7 +356,7 @@ public class Main {
             do {
                 System.out.println("Qual é a nota do primeiro trabalho?");
                 try{
-                    resp = in.nextInt();
+                    resp = in.nextDouble();
                     if (resp >= 0 && resp <= 20){
                         tb1.add(String.valueOf(resp));
                         vali2 = false;
@@ -343,7 +373,7 @@ public class Main {
             do {
                 System.out.println("Qual é a nota do segundo trabalho?");
                 try{
-                    resp = in.nextInt();
+                    resp = in.nextDouble();
                     if (resp >= 0 && resp <= 20){
                         tb2.add(String.valueOf(resp));
                         vali2 = false;
@@ -360,7 +390,7 @@ public class Main {
             do {
                 System.out.println("Qual é a nota do exame?");
                 try{
-                    resp = in.nextInt();
+                    resp = in.nextDouble();
                     if (resp >= 0 && resp <= 20){
                         exam.add(String.valueOf(resp));
                         vali2 = false;
