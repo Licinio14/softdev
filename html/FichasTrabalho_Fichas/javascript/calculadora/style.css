@@ -1,0 +1,13 @@
+.button{
+    background-color: white;
+    border-radius: 5px;
+    border-color: blue;
+    color: black;
+}
+
+.titulo{
+    border-radius: 20px;
+    background-color: greenyellow;
+    color: green;
+    text-decoration: underline;
+}
