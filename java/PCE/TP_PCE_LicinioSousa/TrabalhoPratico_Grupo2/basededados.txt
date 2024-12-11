@@ -2,5 +2,9 @@ joão;20;1
 Marta;10;0
 Maria;36;2
 Anabela de Malhadas;5648451;0
-Pedro;15;3
 Ana;34;0
+Pedro;0;0
+Carolina;10;5
+Manuel;20;5
+Marcia;5;5
+Carlos;57;5
