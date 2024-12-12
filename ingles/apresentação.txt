@@ -1,0 +1,35 @@
+How developers approach problem-solving?
+
+we have a lot of different ways to approach it, and i'm gona show you one of them
+
+the 8 step one, is supposedly the most effective one to use
+
+
+
+
+So, i divide the 8 steps in 2 fases
+
+the Mapping fase and the Deployment fase
+
+
+______________________________________________________________________
+
+In the mapping fase we need to:
+
+Define the problem, where we need to see whats the is problem and if it's worth of resolving, because of budget, time, ressorces or other things
+
+After that, we start to plan and design the solution, seeing how we want it to work and look at the end, then, we can resarch and analyze what was already done in similar cases by other people to take some ideas.
+
+After we gather all the information, we can start developing the solution, and we go to the 2 fase.
+
+___________________________________________________________________________
+
+In the second fase, we have already starting to make the solution so,
+
+we need to start testing, parts or the inteire solution to searchg for bugs,crashes, and more, then,
+
+when we start approaching the final steps, it's time to start optimaze our code, interfaces and more, so we can make it better and easy for the end-user.
+
+when we are happy with the solution, we can implement it and see what other people think about our solution so we can improve in future updates or in the maintainance of the solution.
+
+Then, when we have everting done, we get to the final step, were we can document and share the process, so it can help others in the future going thru the same process we did.
