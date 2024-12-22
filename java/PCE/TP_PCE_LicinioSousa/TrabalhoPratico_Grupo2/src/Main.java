@@ -34,7 +34,7 @@ public class Main {
         PreencherArraysComDados();
 
         do {
-            System.out.printf(BLUE + "%-35s" + RESET, "|2 - Ver ranking|");
+            System.out.printf(GREEN + "%-35s" + RESET, "\n\n|Jogo do saco|");
             System.out.println();
             System.out.printf(BLUE + "%-35s %-35s %-35s %-35s" + RESET, "|1 - Adicionar ou Remover ouvintes|", "|2 - Ver ranking|", "|3 - Jogar|", "|0 - Sair|");
             //quebra de linha
@@ -42,11 +42,18 @@ public class Main {
 
             // valida se inserio apenas numeros
             try {
+                //dar reset ao scanner
+                in = new Scanner(System.in);
+
                 menu = in.nextInt();
                 //valida se a escolha é valida
                 switch (menu) {
                     case 0:
                         System.out.println(RED + "Terminando o programa" + RESET);
+
+                        //atualizar a base de dados
+                        EscreverArraysNaBaseDados();
+
                         vali = false;
                         break;
                     case 1:
@@ -58,6 +65,9 @@ public class Main {
 
                             //valida se so inserio numeros
                             try {
+                                //dar reset ao scanner
+                                in = new Scanner(System.in);
+
                                 menu = in.nextInt();
                                 if (menu == 1) AdicionarOuvintes();
                                 else if (menu == 2) RemoverOuvintes();
@@ -90,11 +100,13 @@ public class Main {
     }
 
     private static void Jogar() {
-        int pesodosaco, max = nomes.size(),index = 0;
+        int max = nomes.size(), index = 0, ganhadores = 0;
+        int[][] diferenca;
         double aposta;
+        boolean resposta = true;
 
         // numero aleatorio de ouvintes que vao jogar
-        maxouvintes = rnd.nextInt(1,max + 1);
+        maxouvintes = rnd.nextInt(1, max + 1);
 
 
         //limpa a lista de index
@@ -102,10 +114,10 @@ public class Main {
 
         //cria a lista de ouvintes que vao jogar
         for (int i = 0; i < maxouvintes; i++) {
-            index = rnd.nextInt(0,max);
+            index = rnd.nextInt(0, max);
             if (!ouvintes.contains(index)) {
                 ouvintes.add(index);
-            }else {
+            } else {
                 i--;
             }
 
@@ -114,10 +126,17 @@ public class Main {
         //determina o peso do saco
         CriarSaco();
 
+        //declarar o tamanho do array diferenca
+        diferenca = new int[maxouvintes][2];
+
         //preencher as apostas
         for (int i = 0; i < maxouvintes; i++) {
-            //mostra a lista de ouvintes que vao jogar
-            MostrarOuvintesParaJogar(i+1);
+
+            //para nao tar sempre a mostrar a lista se errar a resposta
+            if (resposta) {
+                //mostra a lista de ouvintes que vao jogar
+                MostrarOuvintesParaJogar(i, maxouvintes - i);
+            }
 
             //mostra o intervalo em que o saco se encontra
             System.out.println(YELLOW + "O saco tem entre " + menorpeso + "kg e " + maiorpeso + " kg!" + RESET);
@@ -127,32 +146,84 @@ public class Main {
 
             //pede a aposta do utilizador
             System.out.println(BLUE + "Qual é a sua aposta?" + RESET);
+
+            //dar reset ao scanner
             in = new Scanner(System.in);
+
             //valida se a resposta é um numero
-            try{
+            try {
                 aposta = in.nextDouble();
                 //valida se a resposta esta dentro dos parametros fornecidos
-                if (aposta > menorpeso && aposta < maiorpeso) {
+                if (aposta >= menorpeso && aposta <= maiorpeso) {
                     apostas.add(aposta);
-                }else {
+
+                    //adicionar os user e o quao perto estao do peso
+                    diferenca[i][0] = ouvintes.get(i);
+                    diferenca[i][1] = (int) Math.round(Math.abs(aposta - pesodosaco) * 1000);
+
+                    //para mostrar a lista em espera
+                    resposta = true;
+                } else {
                     System.out.println(RED + "Aposta invalida!" + RESET);
                     i--;
+
+                    //para nao mostrar a lista em espera
+                    resposta = false;
                 }
-            }catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println(RED + "Insira apenas números e uma virgula!" + RESET);
             }
 
         }
 
         //mostra a lista completa com as apostas
-        MostrarOuvintesParaJogar(2);
+        MostrarOuvintesParaJogar(-1, 0);
 
+        //ordenar o array para ver quem esta mais perto
+        Arrays.sort(diferenca, (a, b) -> Integer.compare(a[1], b[1]));
+
+        //contar quantos ganharam
+        for (int i = 0; i < maxouvintes; i++) {
+
+            if (diferenca[i][1] == diferenca[0][1]) {
+                ganhadores++;
+            }
+
+        }
+
+        if (ganhadores == 1) {
+            System.out.println(GREEN + "\nExiste " + ganhadores + " vencedor." + RESET);
+            System.out.print(BLUE + "O vencedor é:  " + RESET);
+        } else {
+            System.out.println(GREEN + "\nExistem " + ganhadores + " vencedores." + RESET);
+            System.out.print(BLUE + "Os vencedores são:  " + RESET);
+        }
+
+
+        //mostrar o(s) vencedor(s) e acrescentar as jogadas
+        for (int i = 0; i < maxouvintes; i++) {
+
+            if (diferenca[i][1] == diferenca[0][1]) {
+                jogadas.set(diferenca[i][0], jogadas.get(diferenca[i][0]) + 1);
+                acertadas.set(diferenca[i][0], acertadas.get(diferenca[i][0]) + 1);
+                System.out.print(GREEN + nomes.get(diferenca[i][0]) + "\t" + RESET);
+            } else {
+                jogadas.set(diferenca[i][0], jogadas.get(diferenca[i][0]) + 1);
+            }
+
+        }
+
+        //quebra de linha
+        System.out.println();
+
+        //atualizar a base de dados
+        EscreverArraysNaBaseDados();
     }
 
     private static void CriarSaco() {
-        int margem = rnd.nextInt(1,151);
+        int margem = rnd.nextInt(1, 151);
         //gerar um peso aleatorio entre 1kg e 10kg
-        pesodosaco = rnd.nextInt(1000,10001);
+        pesodosaco = rnd.nextInt(1000, 10001);
 
         //calcula a margem aleatoria para que nao seja sempre o numero do meio o premiado
         menorpeso = pesodosaco - margem;
@@ -163,35 +234,47 @@ public class Main {
         menorpeso /= 1000;
         maiorpeso /= 1000;
 
-        ///so para testes, tenho de apagar depois!!!
-        System.out.println(YELLOW + "O saco tem " + pesodosaco + "kg!" + RESET);
     }
 
-    private static void MostrarOuvintesParaJogar(int opcao) {
+    private static void MostrarOuvintesParaJogar(int opcao, int max) {
 
-        if(opcao > 0){
+        if (opcao >= 0) {
             //quebra de linha
             System.out.println();
 
-            System.out.println(YELLOW + "Estão " + (maxouvintes - 1) + " ouvintes na fila!" + RESET);
+            System.out.println(YELLOW + "Estão " + (max - 1) + " ouvintes na fila!" + RESET);
             //quebra de linha
             System.out.println();
-            //da print a lista
-            System.out.println(YELLOW + "Lista de espera:" + RESET);
-            for (int i = 0; i < maxouvintes; i++) {
-                System.out.println(BLUE + (i + 1) + "ª: " + nomes.get(ouvintes.get(i)) + RESET);
+
+            //para nao dar print quando nao existir ninguem na lista de espera
+            if (max - 1 != 0) {
+                //da print a lista
+                System.out.println(YELLOW + "Lista de espera:" + RESET);
+                for (int i = opcao + 1; i < maxouvintes; i++) {
+                    System.out.println(BLUE + (i + 1) + "ª: " + nomes.get(ouvintes.get(i)) + RESET);
+                }
+                //quebra de linha
+                System.out.println();
             }
+
+
+        } else if (opcao == -1) {
             //quebra de linha
             System.out.println();
 
-        }else if(opcao == 0){
+            //Mostrar o valor do saco antes da listagem de jogadores
+            System.out.println(BLUE + "O peso do saco é: " + GREEN + pesodosaco + RESET);
+
             //quebra de linha
             System.out.println();
 
-            System.out.printf(YELLOW + " %30s %30s " + RESET,"Nomes","Apostas");
+            System.out.printf(YELLOW + " %-30s %-30s \n" + RESET, "Nomes", "Apostas");
             for (int i = 0; i < maxouvintes; i++) {
-                System.out.printf(GREEN + " %30s %30s " + RESET,nomes.get(ouvintes.get(i)),apostas.get(i));
+                System.out.printf(BLUE + " %-30s %-30s \n" + RESET, nomes.get(ouvintes.get(i)), apostas.get(i));
             }
+
+            //quebra de linha
+            System.out.println();
         }
 
 
@@ -272,9 +355,9 @@ public class Main {
         }
 
         //escrever no ficheiro ranking
-        try{
+        try {
             Files.write(Path.of("ranking.txt"), output);
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println(RED + "Erro ao escrever no ranking!" + RESET);
         }
 
@@ -300,6 +383,9 @@ public class Main {
         do {
             System.out.println(RED + "Qual o ouvinte que quer remover?\t\t| 0 - Para cancelar |" + RESET);
             try {
+                //dar reset ao scanner
+                in = new Scanner(System.in);
+
                 escolha = in.nextInt();
                 if (escolha >= 1 && escolha <= nomes.size()) {
                     escolha--;
@@ -333,7 +419,10 @@ public class Main {
         String nome;
 
         System.out.println(BLUE + "Qual é o nome do ouvinte?\t\t| Digite 0 para cancelar |" + RESET);
+
+        //dar reset ao scanner
         in = new Scanner(System.in);
+
         nome = in.nextLine();
         if (nome.equals("0")) {
             System.out.println(RED + "Cancelado!" + RESET);
@@ -351,12 +440,6 @@ public class Main {
         }
 
 
-    }
-
-    private static void Clear() {
-        for (int i = 0; i < 100; i++) {
-            System.out.println();
-        }
     }
 
     private static void MostrarOuvintes() {

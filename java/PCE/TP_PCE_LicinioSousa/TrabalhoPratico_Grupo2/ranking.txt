@@ -1,11 +1,12 @@
 [0;32mClassificação dos ouvintes[0m
-1ª classificado: Marcia com 5 vitorias e 5 jogadas.
-2ª classificado: Carolina com 5 vitorias e 10 jogadas.
-3ª classificado: Manuel com 5 vitorias e 20 jogadas.
-4ª classificado: Carlos com 5 vitorias e 57 jogadas.
-5ª classificado: Maria com 2 vitorias e 36 jogadas.
+1ª classificado: Carlos com 6 vitorias e 58 jogadas.
+2ª classificado: Marcia com 5 vitorias e 5 jogadas.
+3ª classificado: Carolina com 5 vitorias e 10 jogadas.
+4ª classificado: Manuel com 5 vitorias e 20 jogadas.
+5ª classificado: Maria com 3 vitorias e 37 jogadas.
 6ª classificado: joão com 1 vitorias e 20 jogadas.
-7ª classificado: Pedro com 0 vitorias e 0 jogadas.
-8ª classificado: Marta com 0 vitorias e 10 jogadas.
-9ª classificado: Ana com 0 vitorias e 34 jogadas.
-10ª classificado: Anabela de Malhadas com 0 vitorias e 5648451 jogadas.
+7ª classificado: Ana com 1 vitorias e 35 jogadas.
+8ª classificado: Marcos com 0 vitorias e 0 jogadas.
+9ª classificado: Pedro com 0 vitorias e 1 jogadas.
+10ª classificado: Marta com 0 vitorias e 10 jogadas.
+11ª classificado: Anabela de Malhadas com 0 vitorias e 5648451 jogadas.
