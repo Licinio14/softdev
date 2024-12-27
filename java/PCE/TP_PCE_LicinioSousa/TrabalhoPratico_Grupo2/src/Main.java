@@ -1,4 +1,5 @@
 import javax.swing.plaf.synth.SynthOptionPaneUI;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -84,6 +85,7 @@ public class Main {
                         VerRanking();
                         break;
                     case 3:
+                        //chama a função para jogar o jogo
                         Jogar();
                         break;
                     default:
@@ -105,8 +107,15 @@ public class Main {
         double aposta;
         boolean resposta = true;
 
+        //verifica se existe ouvintes para jogar, caso nao exista sai do jogo e avisa o utilizador
+        if(nomes.isEmpty()){
+            System.out.println(RED + "\nNão existe ouvintes para poder jogar, adicione ouvintes primeiro!" + RESET);
+            return;
+        }
+
+
         // numero aleatorio de ouvintes que vao jogar
-        maxouvintes = rnd.nextInt(1, max + 1);
+        maxouvintes = rnd.nextInt(2, max + 1);
 
 
         //limpa a lista de index
@@ -155,14 +164,25 @@ public class Main {
                 aposta = in.nextDouble();
                 //valida se a resposta esta dentro dos parametros fornecidos
                 if (aposta >= menorpeso && aposta <= maiorpeso) {
-                    apostas.add(aposta);
 
-                    //adicionar os user e o quao perto estao do peso
-                    diferenca[i][0] = ouvintes.get(i);
-                    diferenca[i][1] = (int) Math.round(Math.abs(aposta - pesodosaco) * 1000);
+                    //verifica se ja apostaram o mesmo valor
+                    if (apostas.contains(aposta)){
+                        System.out.println(RED + "Já apostaram esse valor!" + RESET);
+                        i--;
 
-                    //para mostrar a lista em espera
-                    resposta = true;
+                        //para nao mostrar a lista em espera
+                        resposta = false;
+                    }else{
+                        apostas.add(aposta);
+
+                        //adicionar os user e o quao perto estao do peso
+                        diferenca[i][0] = ouvintes.get(i);
+                        diferenca[i][1] = (int) Math.round(Math.abs(aposta - pesodosaco) * 1000);
+
+                        //para mostrar a lista em espera
+                        resposta = true;
+                    }
+
                 } else {
                     System.out.println(RED + "Aposta invalida!" + RESET);
                     i--;
@@ -286,6 +306,12 @@ public class Main {
         ArrayList<Integer> acertostemporario = new ArrayList<>();
         String[][] outputFinal = new String[max][3];
 
+        //verifica se existe ouvintes para montar o ranking, caso nao exista sai e avisa o utilizador
+        if(nomes.isEmpty()){
+            System.out.println(RED + "\nNão existe ouvintes para mostrar um ranking, adicione ouvintes primeiro!" + RESET);
+            return;
+        }
+
 
         // insere o numero de acertos diferentes para dar sort mais a frente
         for (int i = 0; i < nomes.size(); i++) {
@@ -377,6 +403,13 @@ public class Main {
         boolean vali = true;
         int escolha = 0;
 
+        //verifica se existe ouvintes para remover, caso nao exista sai e avisa o utilizador
+        if(nomes.isEmpty()){
+            System.out.println(RED + "\nNão existe ouvintes para remover, adicione ouvintes primeiro!" + RESET);
+            return;
+        }
+
+
         //Mostrar a lista de nomes
         MostrarOuvintes();
 
@@ -464,6 +497,7 @@ public class Main {
 
     private static void PreencherArraysComDados() {
         String linha;
+
         // preenche os arrays com as informações do ficheiro
         try {
             List<String> texto = Files.readAllLines(Path.of("basededados.txt"), StandardCharsets.UTF_8);
@@ -475,7 +509,10 @@ public class Main {
                 acertadas.add(Integer.valueOf(temp[2]));
             }
         } catch (IOException e) {
-            System.out.println(RED + "Erro ao ler a Base de Dados" + RESET);
+            System.out.println(RED + "Erro, Base de Dados não encontrada!" + RESET);
+            System.out.println(BLUE + "Sera criada uma nova base de dados em branco!" + RESET);
+            EscreverArraysNaBaseDados();
+
         }
 
     }
