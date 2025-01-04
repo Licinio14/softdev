@@ -37,9 +37,9 @@ public class Main {
         int op = 0;
 
         //ciclo do menu inicial
-        do{
+        do {
             System.out.printf(CIAN + "%65s\n" + RESET, "| - MENU - |");
-            System.out.println(BLUE + "|1 - Ler base de dados|\t|2 - Escrever dados na base de dados|\t|3 - Mostrar tabela de dados|\t|4 - Distrito com mais votos|\n|5 - Partido mais votado|\t|6 - Mais votado por distrito|\t|7 - Ordenar os distritos do partido vencedor|\n|8 - Atualizar as informações de um distrito|\t|9 - Email do distrito com mais votos invalidos|\t|0 - Sair|" + RESET);
+            System.out.println(BLUE + "|1 - Ler base de dados|\t|2 - Escrever dados na base de dados|\t|3 - Mostrar tabela de dados|\t|4 - Distrito com mais votos|\n|5 - Partido mais votado|\t|6 - Mais votado por distrito|\t|7 - Ordenar os distritos do partido vencedor|\n|8 - Atualizar informações/erros|\t|9 - Adicionar votos da freguesia|\t|10 - Email do distrito com mais votos invalidos|\t|0 - Sair|" + RESET);
 
             //validar se foi inserido apenas numeros
             try {
@@ -47,25 +47,25 @@ public class Main {
                 in = new Scanner(System.in);
 
                 op = in.nextInt();
-                switch(op){
+                switch (op) {
                     case 0:
                         //verifica se as alterações ja foram guardadas
-                        if (guardadoNaBD){
+                        if (guardadoNaBD) {
                             System.out.println(RED + "\nTerminando o programa\n" + RESET);
                             menu = false;
-                        }else {
-                            do{
+                        } else {
+                            do {
                                 System.out.println(RED + "\nAs alterações nao foram guardadas, sair sem guardar?" + RESET);
                                 System.out.println(RED + "|1 - Sim|\t|2 - Nao|" + RESET);
 
                                 //validar se foi inserido apenas numeros
-                                try{
+                                try {
                                     //resetar o scanner
                                     in = new Scanner(System.in);
 
                                     op = in.nextInt();
 
-                                    if (op == 1){
+                                    if (op == 1) {
                                         System.out.println(RED + "\nTerminando o programa\n" + RESET);
                                         menu = false;
                                     } else if (op == 2) {
@@ -73,11 +73,11 @@ public class Main {
                                     } else {
                                         System.out.println(RED + "\nEscolha uma opção valida\n" + RESET);
                                     }
-                                }catch (InputMismatchException e){
+                                } catch (InputMismatchException e) {
                                     System.out.println(RED + "\nInsira apenas números\n" + RESET);
                                 }
 
-                            }while(op != 1 && op != 2);
+                            } while (op != 1 && op != 2);
 
                         }
 
@@ -115,6 +115,10 @@ public class Main {
                         AtualizarInformacoes();
                         break;
                     case 9:
+                        //adicionar votos de concelhos
+                        AdicionarFreguesia();
+                        break;
+                    case 10:
                         //imprimir os emails dos que tem mais votos invalidos
                         EmailMaisVotosInvalidos();
                         break;
@@ -123,11 +127,11 @@ public class Main {
                         break;
 
                 }
-            }catch (InputMismatchException e ){
+            } catch (InputMismatchException e) {
                 System.out.println(RED + "\nInsira apenas números inteiros\n" + RESET);
             }
 
-        }while(menu);
+        } while (menu);
 
 
     }
@@ -141,7 +145,7 @@ public class Main {
         if (distritos.isEmpty()) {
             System.out.println(RED + "\nErro ao mostrar dados\nNão existe dados para montar!\n" + RESET);
             return;
-        }else if (!validacaoInicial) {
+        } else if (!validacaoInicial) {
             System.out.println(RED + "\nErro ao mostrar dados\nDados inseridos nao estão corretos!\n" + RESET);
             return;
         }
@@ -149,9 +153,9 @@ public class Main {
         //ciclo para saber quem tem mais votos invalidos
         for (int i = 0; i < distritos.size(); i++) {
             //na primeira passagem atribui o valor e nas proximas é que compara
-            if(i == 0){
+            if (i == 0) {
                 totalInvalidos = nulos.get(i) + brancos.get(i);
-            }else {
+            } else {
                 if (totalInvalidos < (nulos.get(i) + brancos.get(i))) totalInvalidos = nulos.get(i) + brancos.get(i);
             }
         }
@@ -159,7 +163,7 @@ public class Main {
         //cilco para construir os emails
         for (int i = 0; i < distritos.size(); i++) {
             //verifica se é um dos destritos que é necessario ter o email
-            if(totalInvalidos == (nulos.get(i) + brancos.get(i))){
+            if (totalInvalidos == (nulos.get(i) + brancos.get(i))) {
                 //passa o nome para uma string para acessar os caracteres
                 nome = distritos.get(i);
 
@@ -168,12 +172,12 @@ public class Main {
 
                 //controi o email com os caracters desejados
                 System.out.println(nome.charAt(1));
-                emails.add(String.valueOf(nome.charAt(0)) + String.valueOf(nome.charAt(1)) + String.valueOf(nome.charAt(nome.length()-2)) + String.valueOf(nome.charAt(nome.length()-1)) + "@ine.pt");
+                emails.add(String.valueOf(nome.charAt(0)) + String.valueOf(nome.charAt(1)) + String.valueOf(nome.charAt(nome.length() - 2)) + String.valueOf(nome.charAt(nome.length() - 1)) + "@ine.pt");
             }
         }
 
         //mostrar em tabela
-        System.out.printf(CIAN + "\n%s\n" + RESET, "Emails dos distritos com mais votos invalidos\n" );
+        System.out.printf(CIAN + "\n%s\n" + RESET, "Emails dos distritos com mais votos invalidos\n");
 
         //separar
         for (int i = 0; i < 29; i++) {
@@ -196,7 +200,7 @@ public class Main {
 
         //ciclo para mostrar os emails
         for (int i = 0; i < emails.size(); i += 2) {
-            System.out.printf(BLACK + "| " + GREEN + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, emails.get(i), emails.get(i+1));
+            System.out.printf(BLACK + "| " + GREEN + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, emails.get(i), emails.get(i + 1));
         }
 
         //separar
@@ -206,6 +210,296 @@ public class Main {
 
         //quebra de linha
         System.out.println();
+    }
+
+    private static void AdicionarFreguesia() {
+        int index = 0, addvotantes = 0, addnulos = 0, addbrancos = 0, addad = 0, addps = 0, addch = 0, addil = 0, addbe = 0, erros = 0;
+        boolean menu = true, menu2 = true;
+
+        if (distritos.isEmpty()) {
+            System.out.println(RED + "\nErro ao mostrar dados\nNão existe dados para montar!\n" + RESET);
+            return;
+        } else if (!validacaoInicial) {
+            System.out.println(RED + "\nErro ao mostrar dados\nDados inseridos nao estão corretos!\n" + RESET);
+            return;
+        }
+
+        do {
+            //Mostrar a tabela
+            MostrarTabela();
+
+            //mostrar opções de distritos
+            for (int i = 0; i < distritos.size(); i++) {
+                System.out.printf(YELLOW + "| %d | - %s\t" + RESET, i + 1, distritos.get(i));
+            }
+            System.out.printf(YELLOW + "| 0 | - Cancelar" + RESET);
+
+            //quebra de linha
+            System.out.println();
+
+            try {
+                System.out.println(BLUE + "Qual é o distrito em que pretende adicionar os votos da freguesia");
+                //resetar o scanner
+                in = new Scanner(System.in);
+
+                index = in.nextInt();
+
+                //para caso o utilizador queira cancelar
+                if (index == 0) {
+                    System.out.println(GREEN + "Cancelando..." + RESET);
+                    return;
+                } else {
+                    // muda o index para o correto usado no array
+                    index--;
+                }
+
+                //verifica se é uma opção valida
+                if (index >= 0 && index < distritos.size()) {
+
+                    //perguntar os valores ao utilizador
+                    do {
+                        System.out.println(BLUE + "Quantos votantes participaram? |0 - Para cancelar|" + RESET);
+                        //resetar o scanner
+                        in = new Scanner(System.in);
+
+                        try {
+                            addvotantes = in.nextInt();
+
+                            //validaçoes
+                            if (addvotantes == 0) {
+                                System.out.println(GREEN + "Cancelando..." + RESET);
+                                return;
+                            }
+                            if (addvotantes < 0) {
+                                System.out.println(RED + "O número de votantes tem de ser positivo!\n" + RESET);
+                            } else {
+                                menu2 = false;
+                            }
+
+                        } catch (InputMismatchException e) {
+                            System.out.println(RED + "Insira apenas números!!\n" + RESET);
+                        }
+
+                    } while (menu2);
+                    //resetar a variavel para o proximo loop
+                    menu2 = true;
+
+                    //perguntar os valores ao utilizador
+                    do {
+                        System.out.println(BLUE + "Quantos votos nulos?" + RESET);
+                        //resetar o scanner
+                        in = new Scanner(System.in);
+
+                        try {
+                            addnulos = in.nextInt();
+
+                            //validaçoes
+                            if (addnulos < 0) {
+                                System.out.println(RED + "A quantidade de votos tem de ser 0 ou mais!\n" + RESET);
+                            } else {
+                                menu2 = false;
+                            }
+
+                        } catch (InputMismatchException e) {
+                            System.out.println(RED + "Insira apenas números!!\n" + RESET);
+                        }
+
+                    } while (menu2);
+                    //resetar a variavel para o proximo loop
+                    menu2 = true;
+
+                    //perguntar os valores ao utilizador
+                    do {
+                        System.out.println(BLUE + "Quantos votos em branco?" + RESET);
+                        //resetar o scanner
+                        in = new Scanner(System.in);
+
+                        try {
+                            addbrancos = in.nextInt();
+
+                            //validaçoes
+                            if (addbrancos < 0) {
+                                System.out.println(RED + "A quantidade de votos tem de ser 0 ou mais!\n" + RESET);
+                            } else {
+                                menu2 = false;
+                            }
+
+                        } catch (InputMismatchException e) {
+                            System.out.println(RED + "Insira apenas números!!\n" + RESET);
+                        }
+
+                    } while (menu2);
+                    //resetar a variavel para o proximo loop
+                    menu2 = true;
+
+                    //perguntar os valores ao utilizador
+                    do {
+                        System.out.println(BLUE + "Quantos votos no AD?" + RESET);
+                        //resetar o scanner
+                        in = new Scanner(System.in);
+
+                        try {
+                            addad = in.nextInt();
+
+                            //validaçoes
+                            if (addad < 0) {
+                                System.out.println(RED + "A quantidade de votos tem de ser 0 ou mais!\n" + RESET);
+                            } else {
+                                menu2 = false;
+                            }
+
+                        } catch (InputMismatchException e) {
+                            System.out.println(RED + "Insira apenas números!!\n" + RESET);
+                        }
+
+                    } while (menu2);
+                    //resetar a variavel para o proximo loop
+                    menu2 = true;
+
+                    //perguntar os valores ao utilizador
+                    do {
+                        System.out.println(BLUE + "Quantos votos no PS?" + RESET);
+                        //resetar o scanner
+                        in = new Scanner(System.in);
+
+                        try {
+                            addps = in.nextInt();
+
+                            //validaçoes
+                            if (addps < 0) {
+                                System.out.println(RED + "A quantidade de votos tem de ser 0 ou mais!\n" + RESET);
+                            } else {
+                                menu2 = false;
+                            }
+
+                        } catch (InputMismatchException e) {
+                            System.out.println(RED + "Insira apenas números!!\n" + RESET);
+                        }
+
+                    } while (menu2);
+                    //resetar a variavel para o proximo loop
+                    menu2 = true;
+
+                    //perguntar os valores ao utilizador
+                    do {
+                        System.out.println(BLUE + "Quantos votos no CH?" + RESET);
+                        //resetar o scanner
+                        in = new Scanner(System.in);
+
+                        try {
+                            addch = in.nextInt();
+
+                            //validaçoes
+                            if (addch < 0) {
+                                System.out.println(RED + "A quantidade de votos tem de ser 0 ou mais!\n" + RESET);
+                            } else {
+                                menu2 = false;
+                            }
+
+                        } catch (InputMismatchException e) {
+                            System.out.println(RED + "Insira apenas números!!\n" + RESET);
+                        }
+
+                    } while (menu2);
+                    //resetar a variavel para o proximo loop
+                    menu2 = true;
+
+                    //perguntar os valores ao utilizador
+                    do {
+                        System.out.println(BLUE + "Quantos votos no IL?" + RESET);
+                        //resetar o scanner
+                        in = new Scanner(System.in);
+
+                        try {
+                            addil = in.nextInt();
+
+                            //validaçoes
+                            if (addil < 0) {
+                                System.out.println(RED + "A quantidade de votos tem de ser 0 ou mais!\n" + RESET);
+                            } else {
+                                menu2 = false;
+                            }
+
+                        } catch (InputMismatchException e) {
+                            System.out.println(RED + "Insira apenas números!!\n" + RESET);
+                        }
+
+                    } while (menu2);
+                    //resetar a variavel para o proximo loop
+                    menu2 = true;
+
+                    //perguntar os valores ao utilizador
+                    do {
+                        System.out.println(BLUE + "Quantos votos no BE?" + RESET);
+                        //resetar o scanner
+                        in = new Scanner(System.in);
+
+                        try {
+                            addbe = in.nextInt();
+
+                            //validaçoes
+                            if (addbe < 0) {
+                                System.out.println(RED + "A quantidade de votos tem de ser 0 ou mais!\n" + RESET);
+                            } else {
+                                menu2 = false;
+                            }
+
+                        } catch (InputMismatchException e) {
+                            System.out.println(RED + "Insira apenas números!!\n" + RESET);
+                        }
+
+                    } while (menu2);
+
+                    //parar o ciclo
+                    menu = false;
+
+                } else {
+                    System.out.println(RED + "Insira uma opção valida" + RESET);
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println(RED + "Insira apenas números!!" + RESET);
+            }
+        } while (menu);
+
+        //validações finais
+        //verifica se os votantes vao ser mais que os inscritos
+        if (addvotantes + votantes.get(index) > inscritos.get(index)) {
+            System.out.println(RED + "A quantidade de votantes de um distrito nao pode ser maior que os inscritos!\n" + RESET);
+            erros++;
+        }
+        //verifica se tem mais votos que votantes
+        if (addvotantes < (addnulos + addbrancos + addad + addps + addch + addil + addbe)) {
+            System.out.println(RED + "A quantidade de votos nao pode ser maior que os votantes!\n" + RESET);
+            erros++;
+        }
+
+        //informa o utilizador
+        if (erros != 0) {
+            System.out.println(RED + "\nExiste erros nos dados, dados nao adicionados a base de dados!!!" + RESET);
+            return;
+        } else {
+            votantes.set(index, (votantes.get(index) + addvotantes));
+            nulos.set(index, (nulos.get(index) + addnulos));
+            brancos.set(index, (brancos.get(index) + addbrancos));
+            ad.set(index, (ad.get(index) + addad));
+            ps.set(index, (ps.get(index) + addps));
+            ch.set(index, (ch.get(index) + addch));
+            il.set(index, (il.get(index) + addil));
+            be.set(index, (be.get(index) + addbe));
+
+            System.out.println(GREEN + "Dados inseridos na base de dados!\n" + RESET);
+
+            //para saber que os dados nao estao guardados
+            guardadoNaBD = false;
+
+            //atualizar colunas e validação final
+            CalcularOutros(index);
+            CalcularOutros(index);
+            ValidarDados();
+        }
+
+
     }
 
     private static void AtualizarInformacoes() {
@@ -218,13 +512,13 @@ public class Main {
             return;
         }
 
-        do{
+        do {
             //Mostrar a tabela
             MostrarTabela();
 
             //mostrar opções de distritos
             for (int i = 0; i < distritos.size(); i++) {
-                System.out.printf(YELLOW + "| %d | - %s\t" + RESET, i + 1 , distritos.get(i));
+                System.out.printf(YELLOW + "| %d | - %s\t" + RESET, i + 1, distritos.get(i));
             }
             System.out.printf(YELLOW + "| 0 | - Cancelar" + RESET);
 
@@ -232,7 +526,7 @@ public class Main {
             System.out.println();
 
             //ciclo para garantir que o utilizador escolhe uma opção valida
-            do{
+            do {
 
                 //perguntar ao utilizador qual distrito que alterar
                 System.out.println(BLUE + "Qual é o distrito que pretende alterar?" + RESET);
@@ -240,7 +534,7 @@ public class Main {
                 //resetar o scanner
                 in = new Scanner(System.in);
 
-                try{
+                try {
                     index = in.nextInt();
 
                     //verifica se pode prosseguir ou nao
@@ -249,25 +543,25 @@ public class Main {
                             //cancela a operação
                             System.out.println(GREEN + "\nCancelando...\n" + RESET);
                             return;
-                        }else {
+                        } else {
                             //atualiza o index para o valor real usado nas listas
                             index--;
                             menu2 = false;
                         }
-                    }else {
+                    } else {
                         System.out.println(RED + "\nInsira uma opção valida!\n" + RESET);
                     }
                 } catch (InputMismatchException e) {
                     System.out.println(RED + "\nInsira apenas números!\n" + RESET);
                 }
 
-            }while(menu2);
+            } while (menu2);
 
             //reseta a variavel do submenu
             menu2 = true;
 
             //ciclo para garantir que o utilizador escolhe uma opção valida
-            do{
+            do {
 
                 //mostrar opções de colunas
                 System.out.println(YELLOW + "|1| - Distritos\t|2| - Inscritos\t|3| - Votantes\t|4| - Nulos\t|5| - Brancos\t|6| - AD\t|7| - PS\t|8| - CH\t|9| - IL\t|10| - BE\t|0| - Cancelar\t" + RESET);
@@ -281,7 +575,7 @@ public class Main {
                 //resetar o scanner
                 in = new Scanner(System.in);
 
-                try{
+                try {
                     op = in.nextInt();
 
                     //verifica se pode prosseguir ou nao
@@ -290,7 +584,7 @@ public class Main {
                             //cancela a operação
                             System.out.println(GREEN + "\nCancelando...\n" + RESET);
                             return;
-                        }else {
+                        } else {
                             // 1 para os nomes por ser string e o resto é int
                             if (op == 1) {
                                 System.out.println(BLUE + "\nQual é o novo nome?\n" + RESET);
@@ -299,7 +593,7 @@ public class Main {
                                 in = new Scanner(System.in);
 
                                 //muda o valor antigo para o novo
-                                distritos.set(index,in.nextLine());
+                                distritos.set(index, in.nextLine());
 
                                 //guarda a informação que os dados foram alterados e nao foram guardados
                                 guardadoNaBD = false;
@@ -307,22 +601,22 @@ public class Main {
                                 //termina este loop
                                 menu2 = false;
 
-                            }else {
+                            } else {
                                 System.out.println(BLUE + "\nQual é o novo valor?" + RESET);
 
                                 //resetar o scanner
                                 in = new Scanner(System.in);
 
-                                try{
+                                try {
                                     respostaInt = in.nextInt();
 
-                                    if(respostaInt >= 0){
+                                    if (respostaInt >= 0) {
                                         switch (op) {
                                             case 2:
                                                 //valida a resposta
                                                 if (respostaInt >= (total.get(index))) {
                                                     //atualiza o valor
-                                                    inscritos.set(index,respostaInt);
+                                                    inscritos.set(index, respostaInt);
 
                                                     //informa o utilizador
                                                     System.out.println(GREEN + "\nAlterado com sucesso\n" + RESET);
@@ -332,7 +626,7 @@ public class Main {
 
                                                     //termina este loop
                                                     menu2 = false;
-                                                }else{
+                                                } else {
                                                     System.out.println(RED + "Os inscritos tem de ser maior ou igual aos votantes!!!\n" + RESET);
                                                 }
                                                 break;
@@ -340,7 +634,7 @@ public class Main {
                                                 //valida a resposta
                                                 if (respostaInt <= inscritos.get(index) && respostaInt >= (nulos.get(index) + brancos.get(index) + ad.get(index) + ps.get(index) + ch.get(index) + il.get(index) + be.get(index))) {
                                                     //atualiza o valor
-                                                    votantes.set(index,respostaInt);
+                                                    votantes.set(index, respostaInt);
 
                                                     //informa o utilizador
                                                     System.out.println(GREEN + "\nAlterado com sucesso\n" + RESET);
@@ -357,7 +651,7 @@ public class Main {
                                                     //parar este loop
                                                     menu2 = false;
 
-                                                }else{
+                                                } else {
                                                     System.out.println(RED + "A quantidade de votantes nao pode ser maior que os inscritos nem menor que a quantidade de votos!!!\n" + RESET);
                                                 }
                                                 break;
@@ -373,7 +667,7 @@ public class Main {
                                                 }
 
                                                 //atualiza o valor
-                                                nulos.set(index,respostaInt);
+                                                nulos.set(index, respostaInt);
 
                                                 //informa o utilizador
                                                 System.out.println(GREEN + "\nAlterado com sucesso\n" + RESET);
@@ -403,7 +697,7 @@ public class Main {
                                                 }
 
                                                 //atualiza o valor
-                                                brancos.set(index,respostaInt);
+                                                brancos.set(index, respostaInt);
 
                                                 //informa o utilizador
                                                 System.out.println(GREEN + "\nAlterado com sucesso\n" + RESET);
@@ -432,7 +726,7 @@ public class Main {
                                                 }
 
                                                 //atualiza o valor
-                                                ad.set(index,respostaInt);
+                                                ad.set(index, respostaInt);
 
                                                 //informa o utilizador
                                                 System.out.println(GREEN + "\nAlterado com sucesso\n" + RESET);
@@ -461,7 +755,7 @@ public class Main {
                                                 }
 
                                                 //atualiza o valor
-                                                ps.set(index,respostaInt);
+                                                ps.set(index, respostaInt);
 
                                                 //informa o utilizador
                                                 System.out.println(GREEN + "\nAlterado com sucesso\n" + RESET);
@@ -490,7 +784,7 @@ public class Main {
                                                 }
 
                                                 //atualiza o valor
-                                                ch.set(index,respostaInt);
+                                                ch.set(index, respostaInt);
 
                                                 //informa o utilizador
                                                 System.out.println(GREEN + "\nAlterado com sucesso\n" + RESET);
@@ -519,7 +813,7 @@ public class Main {
                                                 }
 
                                                 //atualiza o valor
-                                                il.set(index,respostaInt);
+                                                il.set(index, respostaInt);
 
                                                 //informa o utilizador
                                                 System.out.println(GREEN + "\nAlterado com sucesso\n" + RESET);
@@ -548,7 +842,7 @@ public class Main {
                                                 }
 
                                                 //atualiza o valor
-                                                be.set(index,respostaInt);
+                                                be.set(index, respostaInt);
 
                                                 //informa o utilizador
                                                 System.out.println(GREEN + "\nAlterado com sucesso\n" + RESET);
@@ -566,29 +860,29 @@ public class Main {
                                                 menu2 = false;
                                                 break;
                                         }
-                                    }else {
+                                    } else {
                                         System.out.println(RED + "Apenas são aceites numeros positivos!\n" + RESET);
                                     }
-                                }catch (InputMismatchException e){
+                                } catch (InputMismatchException e) {
                                     System.out.println(RED + "Insira apenas números!!!\n" + RESET);
                                 }
 
                             }
 
                         }
-                    }else {
+                    } else {
                         System.out.println(RED + "\nInsira uma opção valida!\n" + RESET);
                     }
                 } catch (InputMismatchException e) {
                     System.out.println(RED + "\nInsira apenas números!\n" + RESET);
                 }
 
-            }while(menu2);
+            } while (menu2);
 
             //reseta a variavel do submenu
             menu2 = true;
 
-            do{
+            do {
                 //pergunta se quer alterar mais alguma coisa
                 System.out.println(BLUE + "Pretende alterar mais algum dado?\n|0| - Não\t|1| - Sim");
 
@@ -609,9 +903,9 @@ public class Main {
                         System.out.println(RED + "Escolha uma opção valida!\n" + RESET);
                         break;
                 }
-            }while(menu2);
+            } while (menu2);
 
-        }while(menu);
+        } while (menu);
 
         //fazer nova validação dos dados
         System.out.println(RED + "\nRevalidando os dados" + RESET);
@@ -629,7 +923,7 @@ public class Main {
         if (distritos.isEmpty()) {
             System.out.println(RED + "\nErro ao mostrar dados\nNão existe dados para montar!\n" + RESET);
             return;
-        }else if (!validacaoInicial) {
+        } else if (!validacaoInicial) {
             System.out.println(RED + "\nErro ao mostrar dados\nDados inseridos nao estão corretos!\n" + RESET);
             return;
         }
@@ -673,15 +967,15 @@ public class Main {
             partidosVencedores.add("BE");
         }
 
-        if (vencedores > 1){
+        if (vencedores > 1) {
             System.out.println(BLUE + "\n  Listas dos partidos vencedores" + RESET);
-        }else {
+        } else {
             System.out.println(BLUE + "\n  Lista do partido vencedor" + RESET);
         }
 
-        do{
+        do {
             //mostrar em tabela
-            System.out.printf(CIAN + "\n%13s\n" + RESET, partidosVencedores.get(countwhile) );
+            System.out.printf(CIAN + "\n%13s\n" + RESET, partidosVencedores.get(countwhile));
 
             //separar
             for (int i = 0; i < 28; i++) {
@@ -749,7 +1043,7 @@ public class Main {
 
 
             countwhile++;
-        }while (countwhile < vencedores);
+        } while (countwhile < vencedores);
 
     }
 
@@ -762,7 +1056,7 @@ public class Main {
         if (distritos.isEmpty()) {
             System.out.println(RED + "\nErro ao mostrar dados\nNão existe dados para montar!\n" + RESET);
             return;
-        }else if (!validacaoInicial) {
+        } else if (!validacaoInicial) {
             System.out.println(RED + "\nErro ao mostrar dados\nDados inseridos nao estão corretos!\n" + RESET);
             return;
         }
@@ -816,18 +1110,19 @@ public class Main {
             percentagem = Math.round(percentagem * 100.0) / 100.0;
 
             //mostrar o(s) partido(s)
-            if (numeroDeVotos == ad.get(i)) System.out.printf(BLACK + "| " + GREEN + "%-7s" + BLACK + " | " + RESET + "%-8s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "AD", numeroDeVotos, percentagem + "%");
-            if (numeroDeVotos == ps.get(i)) System.out.printf(BLACK + "| " + GREEN + "%-7s" + BLACK + " | " + RESET + "%-8s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "PS", numeroDeVotos, percentagem + "%");
-            if (numeroDeVotos == ch.get(i)) System.out.printf(BLACK + "| " + GREEN + "%-7s" + BLACK + " | " + RESET + "%-8s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "CH", numeroDeVotos, percentagem + "%");
-            if (numeroDeVotos == il.get(i)) System.out.printf(BLACK + "| " + GREEN + "%-7s" + BLACK + " | " + RESET + "%-8s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "IL", numeroDeVotos, percentagem + "%");
-            if (numeroDeVotos == be.get(i)) System.out.printf(BLACK + "| " + GREEN + "%-7s" + BLACK + " | " + RESET + "%-8s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "BE", numeroDeVotos, percentagem + "%");
+            if (numeroDeVotos == ad.get(i))
+                System.out.printf(BLACK + "| " + GREEN + "%-7s" + BLACK + " | " + RESET + "%-8s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "AD", numeroDeVotos, percentagem + "%");
+            if (numeroDeVotos == ps.get(i))
+                System.out.printf(BLACK + "| " + GREEN + "%-7s" + BLACK + " | " + RESET + "%-8s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "PS", numeroDeVotos, percentagem + "%");
+            if (numeroDeVotos == ch.get(i))
+                System.out.printf(BLACK + "| " + GREEN + "%-7s" + BLACK + " | " + RESET + "%-8s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "CH", numeroDeVotos, percentagem + "%");
+            if (numeroDeVotos == il.get(i))
+                System.out.printf(BLACK + "| " + GREEN + "%-7s" + BLACK + " | " + RESET + "%-8s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "IL", numeroDeVotos, percentagem + "%");
+            if (numeroDeVotos == be.get(i))
+                System.out.printf(BLACK + "| " + GREEN + "%-7s" + BLACK + " | " + RESET + "%-8s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "BE", numeroDeVotos, percentagem + "%");
 
 
         }
-
-
-
-
 
 
         //fechar a tabela
@@ -847,7 +1142,7 @@ public class Main {
         if (distritos.isEmpty()) {
             System.out.println(RED + "\nErro ao mostrar dados\nNão existe dados para montar!\n" + RESET);
             return;
-        }else if (!validacaoInicial) {
+        } else if (!validacaoInicial) {
             System.out.println(RED + "\nErro ao mostrar dados\nDados inseridos nao estão corretos!\n" + RESET);
             return;
         }
@@ -902,12 +1197,16 @@ public class Main {
         percentagem = Math.round(percentagem * 100.0) / 100.0;
 
         //mostrar o(s) partido(s)
-        if (maisVotado == totalAD) System.out.printf(BLACK + "| " + GREEN + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "AD", maisVotado, percentagem + "%");
-        if (maisVotado == totalPs) System.out.printf(BLACK + "| " + GREEN + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "PS", maisVotado, percentagem + "%");
-        if (maisVotado == totalCH) System.out.printf(BLACK + "| " + GREEN + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "CH", maisVotado, percentagem + "%");
-        if (maisVotado == totalIL) System.out.printf(BLACK + "| " + GREEN + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "IL", maisVotado, percentagem + "%");
-        if (maisVotado == totalBE) System.out.printf(BLACK + "| " + GREEN + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "BE", maisVotado, percentagem + "%");
-
+        if (maisVotado == totalAD)
+            System.out.printf(BLACK + "| " + GREEN + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "AD", maisVotado, percentagem + "%");
+        if (maisVotado == totalPs)
+            System.out.printf(BLACK + "| " + GREEN + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "PS", maisVotado, percentagem + "%");
+        if (maisVotado == totalCH)
+            System.out.printf(BLACK + "| " + GREEN + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "CH", maisVotado, percentagem + "%");
+        if (maisVotado == totalIL)
+            System.out.printf(BLACK + "| " + GREEN + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "IL", maisVotado, percentagem + "%");
+        if (maisVotado == totalBE)
+            System.out.printf(BLACK + "| " + GREEN + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " | " + RESET + "%-11s" + BLACK + " |\n" + RESET, "BE", maisVotado, percentagem + "%");
 
 
         //fechar a tabela
@@ -927,7 +1226,7 @@ public class Main {
         if (distritos.isEmpty()) {
             System.out.println(RED + "\nErro ao mostrar dados\nNão existe dados para montar!\n" + RESET);
             return;
-        }else if (!validacaoInicial) {
+        } else if (!validacaoInicial) {
             System.out.println(RED + "\nErro ao mostrar dados\nDados inseridos nao estão corretos!\n" + RESET);
             return;
         }
@@ -996,18 +1295,18 @@ public class Main {
         System.out.printf(CIAN + "\n %90s \n" + RESET, "| Votações por destrito |");
 
         //inicio da tabela
-        for (int i = 0; i < 157; i++){
+        for (int i = 0; i < 157; i++) {
             System.out.print(BLACK + "-" + RESET);
         }
 
         //quebra de linha
         System.out.println();
 
-        System.out.printf(BLACK + "| "+ BLUE + "%-10S" + BLACK + " | "+ BLUE + "%-10S" + BLACK + " | "+ BLUE + "%-10S" + BLACK + " | "+ BLUE + "%-10S" + BLACK + " | "+ BLUE + "%-10S" + BLACK + " | "+ BLUE + "%-10S" + BLACK + " | "+ BLUE + "%-10S" + BLACK + " | "+ BLUE + "%-10S" + BLACK + " | "+ BLUE + "%-10S" + BLACK + " | "+ BLUE + "%-10S" + BLACK + " | "+ BLUE + "%-10S" + BLACK + " | "+ BLUE + "%-10S" + BLACK + " | \n" + RESET,
-                "Distrito","Inscritos","Votantes","Nulos","Brancos","AD","PS","CH","IL","BE","Outros","Total");
+        System.out.printf(BLACK + "| " + BLUE + "%-10S" + BLACK + " | " + BLUE + "%-10S" + BLACK + " | " + BLUE + "%-10S" + BLACK + " | " + BLUE + "%-10S" + BLACK + " | " + BLUE + "%-10S" + BLACK + " | " + BLUE + "%-10S" + BLACK + " | " + BLUE + "%-10S" + BLACK + " | " + BLUE + "%-10S" + BLACK + " | " + BLUE + "%-10S" + BLACK + " | " + BLUE + "%-10S" + BLACK + " | " + BLUE + "%-10S" + BLACK + " | " + BLUE + "%-10S" + BLACK + " | \n" + RESET,
+                "Distrito", "Inscritos", "Votantes", "Nulos", "Brancos", "AD", "PS", "CH", "IL", "BE", "Outros", "Total");
 
         //separação da tabela
-        for (int i = 0; i < 157; i++){
+        for (int i = 0; i < 157; i++) {
             System.out.print(BLACK + "-" + RESET);
         }
 
@@ -1016,12 +1315,12 @@ public class Main {
 
         //mostrar dados na tabela
         for (int i = 0; i < distritos.size(); i++) {
-            System.out.printf(BLACK + "| "+ GREEN + "%-10S" + BLACK + " | "+ RESET + "%-10S" + BLACK + " | "+ RESET + "%-10S" + BLACK + " | "+ RESET + "%-10S" + BLACK + " | "+ RESET + "%-10S" + BLACK + " | "+ RESET + "%-10S" + BLACK + " | "+ RESET + "%-10S" + BLACK + " | "+ RESET + "%-10S" + BLACK + " | "+ RESET + "%-10S" + BLACK + " | "+ RESET + "%-10S" + BLACK + " | "+ RESET + "%-10S" + BLACK + " | "+ RESET + "%-10S" + BLACK + " | \n" + RESET,
-                    distritos.get(i),inscritos.get(i),votantes.get(i),nulos.get(i),brancos.get(i),ad.get(i),ps.get(i),ch.get(i),il.get(i),be.get(i),outros.get(i),total.get(i));
+            System.out.printf(BLACK + "| " + GREEN + "%-10S" + BLACK + " | " + RESET + "%-10S" + BLACK + " | " + RESET + "%-10S" + BLACK + " | " + RESET + "%-10S" + BLACK + " | " + RESET + "%-10S" + BLACK + " | " + RESET + "%-10S" + BLACK + " | " + RESET + "%-10S" + BLACK + " | " + RESET + "%-10S" + BLACK + " | " + RESET + "%-10S" + BLACK + " | " + RESET + "%-10S" + BLACK + " | " + RESET + "%-10S" + BLACK + " | " + RESET + "%-10S" + BLACK + " | \n" + RESET,
+                    distritos.get(i), inscritos.get(i), votantes.get(i), nulos.get(i), brancos.get(i), ad.get(i), ps.get(i), ch.get(i), il.get(i), be.get(i), outros.get(i), total.get(i));
         }
 
         //fim da tabela
-        for (int i = 0; i < 157; i++){
+        for (int i = 0; i < 157; i++) {
             System.out.print(BLACK + "-" + RESET);
         }
 
@@ -1036,7 +1335,7 @@ public class Main {
         if (distritos.isEmpty()) {
             System.out.println(RED + "\nErro ao escrever na base de dados\nNão existe dados para escrever!\n" + RESET);
             return;
-        }else if (!validacaoInicial) {
+        } else if (!validacaoInicial) {
             System.out.println(RED + "\nErro ao escrever na base de dados\nDados inseridos nao estao corretos!\n" + RESET);
             return;
         }
@@ -1075,68 +1374,68 @@ public class Main {
                 String[] temp = linha.split(";");
 
                 //validar se existe dados na linha
-                if (!linha.isEmpty()){
+                if (!linha.isEmpty()) {
                     try {
                         distritos.add(temp[0]);
-                        try{
+                        try {
                             inscritos.add(Integer.valueOf(temp[1]));
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             // insere −1 para nao dar erro a mostrar e no futuro o utilizador saber onde tem de atualizar os dados
                             inscritos.add(-1);
                             erros = true;
                         }
-                        try{
+                        try {
                             votantes.add(Integer.valueOf(temp[2]));
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             // insere −1 para nao dar erro a mostrar e no futuro o utilizador saber onde tem de atualizar os dados
                             votantes.add(-1);
                             erros = true;
                         }
-                        try{
+                        try {
                             nulos.add(Integer.valueOf(temp[3]));
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             // insere −1 para nao dar erro a mostrar e no futuro o utilizador saber onde tem de atualizar os dados
                             nulos.add(-1);
                             erros = true;
                         }
-                        try{
+                        try {
                             brancos.add(Integer.valueOf(temp[4]));
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             // insere −1 para nao dar erro a mostrar e no futuro o utilizador saber onde tem de atualizar os dados
                             brancos.add(-1);
                             erros = true;
                         }
-                        try{
+                        try {
                             ad.add(Integer.valueOf(temp[5]));
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             // insere −1 para nao dar erro a mostrar e no futuro o utilizador saber onde tem de atualizar os dados
                             ad.add(-1);
                             erros = true;
                         }
-                        try{
+                        try {
                             ps.add(Integer.valueOf(temp[6]));
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             // insere −1 para nao dar erro a mostrar e no futuro o utilizador saber onde tem de atualizar os dados
                             ps.add(-1);
                             erros = true;
                         }
-                        try{
+                        try {
                             ch.add(Integer.valueOf(temp[7]));
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             // insere −1 para nao dar erro a mostrar e no futuro o utilizador saber onde tem de atualizar os dados
                             ch.add(-1);
                             erros = true;
                         }
-                        try{
+                        try {
                             il.add(Integer.valueOf(temp[8]));
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             // insere −1 para nao dar erro a mostrar e no futuro o utilizador saber onde tem de atualizar os dados
                             il.add(-1);
                             erros = true;
                         }
-                        try{
+                        try {
                             be.add(Integer.valueOf(temp[9]));
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             // insere −1 para nao dar erro a mostrar e no futuro o utilizador saber onde tem de atualizar os dados
                             be.add(-1);
                             erros = true;
@@ -1192,27 +1491,27 @@ public class Main {
         //validar os dados
         for (int i = 0; i < distritos.size(); i++) {
             //validar os inscritos
-            if (inscritos.get(i) < total.get(i)){
+            if (inscritos.get(i) < total.get(i)) {
                 System.out.println(RED + "O destrito " + distritos.get(i) + " tem mais votantes que inscritos!!!" + RESET);
                 count++;
             }
 
 
             //validar os votantes
-            if (votantes.get(i) != (nulos.get(i) + brancos.get(i) + ad.get(i) + ps.get(i) + ch.get(i) + il.get(i) + be.get(i) + outros.get(i))){
+            if (votantes.get(i) != (nulos.get(i) + brancos.get(i) + ad.get(i) + ps.get(i) + ch.get(i) + il.get(i) + be.get(i) + outros.get(i))) {
                 System.out.println(RED + "No destrito " + distritos.get(i) + " o numero de votos nao é igual ao numero de votantes!!!" + RESET);
                 count++;
             }
 
             //validar os votantes
-            if (outros.get(i) < 0 || inscritos.get(i) < 0 || votantes.get(i) < 0 || nulos.get(i) < 0 || brancos.get(i) < 0 || ad.get(i) < 0 || ps.get(i) < 0 || ch.get(i) < 0 || il.get(i) < 0 || be.get(i) < 0 ){
+            if (outros.get(i) < 0 || inscritos.get(i) < 0 || votantes.get(i) < 0 || nulos.get(i) < 0 || brancos.get(i) < 0 || ad.get(i) < 0 || ps.get(i) < 0 || ch.get(i) < 0 || il.get(i) < 0 || be.get(i) < 0) {
                 System.out.println(RED + "Existe erros no destrito " + distritos.get(i) + ", os erros foram marcados com \"-1\", visualize a tabela para ver os erros!!!" + RESET);
                 count++;
             }
         }
 
         //mostra a quantidade de erros ou se foi bem sucedida a validação
-        switch (count){
+        switch (count) {
             case 0:
                 System.out.println(GREEN + "Dados validados com sucesso!\n" + RESET);
                 validacaoInicial = true;
@@ -1240,11 +1539,14 @@ public class Main {
                 numero = nulos.get(i) + brancos.get(i) + ad.get(i) + ps.get(i) + ch.get(i) + il.get(i) + be.get(i) + outros.get(i);
                 total.add(numero);
             }
-        }else if (opcao >= 0){
+        } else if (opcao >= 0) {
             //recalcular o total de votos
             numero = nulos.get(opcao) + brancos.get(opcao) + ad.get(opcao) + ps.get(opcao) + ch.get(opcao) + il.get(opcao) + be.get(opcao) + outros.get(opcao);
             total.set(opcao, numero);
-        }else {
+
+            //para saber que os dados nao estao guardados
+            guardadoNaBD = false;
+        } else {
             System.out.println(RED + "Erro a calcular os votos totais!" + RESET);
         }
     }
@@ -1257,19 +1559,22 @@ public class Main {
             for (int i = 0; i < distritos.size(); i++) {
                 //obter a quantidade para a coluna outros
                 numero = votantes.get(i) - (nulos.get(i) + brancos.get(i) + ad.get(i) + ps.get(i) + ch.get(i) + il.get(i) + be.get(i));
-                if(numero < 0){
+                if (numero < 0) {
                     numero = -1;
                 }
                 outros.add(numero);
             }
-        }else if (opcao >= 0){
+        } else if (opcao >= 0) {
             //recalcular a quantidade para a coluna outros
             numero = votantes.get(opcao) - (nulos.get(opcao) + brancos.get(opcao) + ad.get(opcao) + ps.get(opcao) + ch.get(opcao) + il.get(opcao) + be.get(opcao));
-            if(numero < 0){
+            if (numero < 0) {
                 numero = -1;
             }
             outros.set(opcao, numero);
-        }else {
+
+            //para saber que os dados nao estao guardados
+            guardadoNaBD = false;
+        } else {
             System.out.println(RED + "Erro a calcular os dados de outros partidos!" + RESET);
         }
 
