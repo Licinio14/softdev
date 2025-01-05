@@ -17,31 +17,141 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Jura:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body class="indexbody">
-    
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbarCSS josefin-slab-font">
-        <div class="container-fluid">
-            <div class="container"></div>            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav" >
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="acomodacao.html" style="color: white;">ACOMODAÇÃO</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="locais.html" style="color: white;">LOCAIS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.html" style="color: white;">BLOG</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" style="color: white;">CONTATOS</a>
-                    </li>
-                </ul>
+
+    <!-- seções para o menu -->
+    <section id="home" class="homeindex">
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbarCSS josefin-slab-font">
+            <div class="container-fluid">
+                <div class="container"></div>            
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav" >
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#acomodacao" style="color: white;">ACOMODAÇÃO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#locais" style="color: white;">LOCAIS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#blog" style="color: white;">BLOG</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactos.html" style="color: white;">CONTATOS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div>
+            <hr class="hrindex">
+            <h1 class="tituloindex josefin-slab-font text-center">LIVING AROUND</h1>
+            <hr class="hrindex">
+        </div>
+    </section>
+
+    <!-- seções para o menu -->
+    <section id="publi" class="publindex jura-font">
+        <div class="row container-fluid" style="height: 600px;">
+            <div class="col-6 text-center my-auto py-auto" style="border-right-style: solid;">
+                <p class="pindexgrande">Viva livre, Trabalhe de qualquer lugar, descubra o mundo.</p>
+            </div>
+            <div class="col-6 text-center my-auto py-auto">
+                <div class="row">
+                    <p class="pindexgrande">Trabalhos Remotos</p>
+                </div>
+                <img src="Icons/canto.svg" class="cantoindex1">
+                <div class="row textpubli">
+                    <div class="col-6 text-start">
+                        <p class="pindexpequeno ">Indeed</p>
+                        <p class="pindexpequeno">Linkedin</p>
+                        <p class="pindexpequeno">JobRemote</p>
+                        <p class="pindexpequeno">GoogleJobs</p>
+                    </div>
+                    <div class="col-4 text-start"></div>
+                    <div class="col-2 text-start">
+                        <p class="pindexpequeno">Indeed</p>
+                        <p class="pindexpequeno">Linkedin</p>
+                        <p class="pindexpequeno">JobRemote</p>
+                        <p class="pindexpequeno">GoogleJobs</p>
+                    </div>
+                </div>
+                <img src="Icons/canto.svg" class="cantoindex2">
             </div>
         </div>
-      </nav>
+    </section>
 
+    <!-- seções para o menu -->
+    <section id="acomodacao" class="divlindex jura-font">
+        <div class="row container-fluid rowindex">
+            <div class="col-5">
+                <img src="Imagens/pao_de_forma.jpg" class="imagensindex">
+            </div>
+            <div class="col-2"></div>
+            <div class="col-3 my-auto text-center">
+                <h1 class="textoacomodacaoindex">Descubra o seu novo escritório</h1>
+                <input type="button" id="enviar" value="Descobrir" class="bttindex" onclick="window.location.href='acomodacao.html'">
+            </div>
+            <div class="col-1"></div>
+            <div class="col-1 icondivindex text-end">
+                <div class="indexicons text-center mx-auto" style="border-color: white;">
+                    <a href="#home">
+                        <svg width="40" height="40" viewBox="0 0 448 512" style="fill: white;">
+                            <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- seções para o menu -->
+    <section id="locais" class=" jura-font">
+        <div class="row container-fluid rowindex">
+            <div class="col-1 icondivindex text-end">
+                <div class="indexicons text-center mx-auto" style="border-color: black;">
+                    <a href="#home">
+                        <svg width="40" height="40" viewBox="0 0 448 512" style="fill: black;">
+                            <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3 my-auto text-center">
+                <h1 class="textoalocaisindex">Temos destinos especiais para você</h1>
+                <input type="button" id="enviar" value="Explorar" class="bttindex2" onclick="window.location.href='locais.html'">
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+                <img src="Imagens/estrada_outono.jpg" class="imagensindex">
+            </div>
+        </div>
+    </section>
+
+    <!-- seções para o menu -->
+    <section id="blog" class="blogindex jura-font">
+        <div class="row container-fluid rowindex">
+            <div class="container">
+                <hr class="hrindex">
+                <div class="blogindexbtt">
+                    <input type="button" id="enviar" value="Blog" class="bttindex3" onclick="window.location.href='blog.html'">
+                </div>
+                <hr class="hrindex">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-11"></div>
+            <div class="col-1 icondivindex text-end">
+                <div class="indexicons text-center mx-auto" style="border-color: black;">
+                    <a href="#home">
+                        <svg width="40" height="40" viewBox="0 0 448 512" style="fill: black;">
+                            <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- footer -->
     <div class="text-center footer">

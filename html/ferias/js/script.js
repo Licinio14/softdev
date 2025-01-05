@@ -228,6 +228,11 @@ function EscolherCidades(){
         escolha5.textContent = "livingaround_barcelona@living.com"
         escolha5.className = "maplabel"
         maisinfo.appendChild(escolha5)
+    }else if (listcidade.value == 0){
+        map.innerHTML = ""
+        maisinfo.innerHTML = ""
+        document.getElementById("mapa").style.display = "none"
+        document.getElementById("maisinfo").style.display = "none"
     }
 }
 
