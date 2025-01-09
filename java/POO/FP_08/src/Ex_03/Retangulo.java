@@ -10,4 +10,13 @@ public class Retangulo {
         this.altura = altura;
     }
 
+
+    public void CalcArea(){
+        System.out.println("A area é: " + this.largura * this.altura);
+    }
+
+    public void CalcPerimetro(){
+        System.out.println("O perimetro é: " + ((this.largura * 2) + (this.altura * 2)));
+    }
+
 }

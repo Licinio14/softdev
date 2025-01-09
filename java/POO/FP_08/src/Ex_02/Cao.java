@@ -2,6 +2,10 @@ package Ex_02;
 
 public class Cao {
 
+    //atributos de instancia
+    //metodos construtor
+    //metodos de acesso
+    //metodos de instancia
     private String nome;
     private String raca;
     private String latido = "Au au au";
