@@ -108,7 +108,7 @@ public class Main {
         boolean resposta = true;
 
         //verifica se existe ouvintes para jogar, caso nao exista sai do jogo e avisa o utilizador
-        if(nomes.isEmpty()){
+        if (nomes.isEmpty()) {
             System.out.println(RED + "\nNão existe ouvintes para poder jogar, adicione ouvintes primeiro!" + RESET);
             return;
         }
@@ -166,13 +166,13 @@ public class Main {
                 if (aposta >= menorpeso && aposta <= maiorpeso) {
 
                     //verifica se ja apostaram o mesmo valor
-                    if (apostas.contains(aposta)){
+                    if (apostas.contains(aposta)) {
                         System.out.println(RED + "Já apostaram esse valor!" + RESET);
                         i--;
 
                         //para nao mostrar a lista em espera
                         resposta = false;
-                    }else{
+                    } else {
                         apostas.add(aposta);
 
                         //adicionar os user e o quao perto estao do peso
@@ -307,7 +307,7 @@ public class Main {
         String[][] outputFinal = new String[max][3];
 
         //verifica se existe ouvintes para montar o ranking, caso nao exista sai e avisa o utilizador
-        if(nomes.isEmpty()){
+        if (nomes.isEmpty()) {
             System.out.println(RED + "\nNão existe ouvintes para mostrar um ranking, adicione ouvintes primeiro!" + RESET);
             return;
         }
@@ -404,7 +404,7 @@ public class Main {
         int escolha = 0;
 
         //verifica se existe ouvintes para remover, caso nao exista sai e avisa o utilizador
-        if(nomes.isEmpty()){
+        if (nomes.isEmpty()) {
             System.out.println(RED + "\nNão existe ouvintes para remover, adicione ouvintes primeiro!" + RESET);
             return;
         }
