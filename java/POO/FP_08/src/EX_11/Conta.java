@@ -2,18 +2,17 @@ package EX_11;
 
 public class Conta {
 
-    private int numConta;
-    private double saldo;
+    private String numConta;
+    private double saldo = 0;
     private String titular;
 
-    public Conta(int numConta, double saldo, String titular) {
+    public Conta(String numConta, String titular) {
         this.numConta = numConta;
-        this.saldo = saldo;
         this.titular = titular;
     }
 
     //gets e sets
-    public int getNumConta() {
+    public String getNumConta() {
         return numConta;
     }
 
@@ -32,7 +31,6 @@ public class Conta {
             this.saldo -= valor;
             contaDestino.saldo += valor;
             System.out.println("Transferencia efetuada com sucesso!");
-            System.out.println("Saldo atual: " + this.saldo + "€");
         }else {
             System.out.println("Saldo insuficiente");
         }
@@ -40,9 +38,11 @@ public class Conta {
     }
 
     public void MostrarConta() {
+        System.out.println("_____________________________");
         System.out.println("Conta: " + this.numConta);
         System.out.println("Titular: " + this.titular);
         System.out.println("Saldo: " + this.saldo);
+        System.out.println("_____________________________");
     }
 
     public void Depositar(double valor) {
