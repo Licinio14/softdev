@@ -1,4 +1,4 @@
-package Ex_05;
+package Ex_01;
 
 public class Carro {
 
@@ -10,16 +10,48 @@ public class Carro {
     private TipoCombustivel combustivel;
     private double litros100km;
 
-    Carro(String marca, String modelo, int fabrico) {
+    public Carro(String marca, String modelo, int fabrico, int potencia, int cilindrada, TipoCombustivel combustivel, double litros100km) {
         this.marca = marca;
         this.modelo = modelo;
         this.fabrico = fabrico;
+        this.potencia = potencia;
+        this.cilindrada = cilindrada;
+        this.combustivel = combustivel;
+        this.litros100km = litros100km;
     }
 
     public void MostrarCarro(){
         System.out.println("____________________________");
         System.out.println("Marca: " + this.marca + "\nModelo: " + this.modelo + "\nAno: " + this.fabrico);
         System.out.println("____________________________");
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public int getFabrico() {
+        return fabrico;
+    }
+
+    public int getPotencia() {
+        return potencia;
+    }
+
+    public int getCilindrada() {
+        return cilindrada;
+    }
+
+    public TipoCombustivel getCombustivel() {
+        return combustivel;
+    }
+
+    public double getLitros100km() {
+        return litros100km;
     }
 
     public int Idade() {
@@ -48,8 +80,26 @@ public class Carro {
         } else if (this.potencia < adversario.potencia) {
             return adversario;
         }else {
-            //continuar depois da potencia
+            if (this.cilindrada > adversario.cilindrada){
+                return this;
+            }else if (this.cilindrada < adversario.cilindrada){
+                return adversario;
+            }else {
+                if (this.fabrico < adversario.fabrico){
+                    return this;
+                }else if (this.fabrico > adversario.fabrico){
+                    return adversario;
+                }else {
+                    return null;
+                }
+            }
         }
+    }
+
+    public double CalcularConsumos(double distanciaKMs){
+
+        return (distanciaKMs / 100) * this.litros100km;
+
     }
 
 
