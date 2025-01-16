@@ -1,0 +1,5 @@
+-- CREATE DATABASE licino_teste01;
+-- use licinio_teste01;
+CREATE TABLE teste02(
+    id int;
+    );
