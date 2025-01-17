@@ -7,21 +7,28 @@ public class Agenda {
 
     }
 
+    public void testartamanho(){
+        System.out.println("\n\n" + agendar.length);
+    }
+
     public void AdicionarPessoaAgenda(Pessoa pessoaAdicionar){
         int tamanho = agendar.length + 1;
-        System.out.println(tamanho);
         Pessoa[] agendaTemporaria = new Pessoa[tamanho];
 
-        for (int i = 0; i < agendar.length; i++) {
-            agendaTemporaria[i] = agendar[i];
-        }
+        if (agendar[0] == null){
+            agendar[0] = pessoaAdicionar;
+        }else {
+            for (int i = 0; i < agendar.length; i++) {
+                agendaTemporaria[i] = agendar[i];
+            }
 
-        agendar = new Pessoa[tamanho];
+            agendar = new Pessoa[tamanho];
 
-        for (int i = 0; i < agendaTemporaria.length; i++) {
-            agendar[i] = agendaTemporaria[i];
+            for (int i = 0; i < agendaTemporaria.length; i++) {
+                agendar[i] = agendaTemporaria[i];
+            }
+            agendar[tamanho - 1] = pessoaAdicionar;
         }
-        agendar[tamanho - 1] = pessoaAdicionar;
     }
 
     public boolean MostrarAgenda(){
