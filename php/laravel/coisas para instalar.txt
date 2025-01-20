@@ -1,0 +1,2 @@
+php -v --> tem de tar acima de 8.2.0
+composer  --> se não tiver, instalar!
