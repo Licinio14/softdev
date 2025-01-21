@@ -1,8 +1,26 @@
 body{
-    background-color: lightblue;
+    background-color: rgb(255, 255, 255);
 }
 
 .img-home{
     width: 100px;
     margin: 2%;
+}
+
+.navbar-style{
+    background-color: rgb(107, 199, 194);
+}
+
+.users-input-text-style{
+    border-radius: 10px;
+    border-style: solid;
+    border-color: aqua;
+    box-shadow: 2px 2px 2px 2px rgb(0, 112, 112);
+    padding-left: 15px;
+}
+
+h1{
+    font-family: "Macondo", serif;
+    font-weight: 800;
+    font-style: normal;
 }
