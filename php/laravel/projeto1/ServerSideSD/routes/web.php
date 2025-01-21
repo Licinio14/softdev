@@ -1,27 +1,26 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeControler;
+use App\Http\Controllers\UserControler;
+use App\Http\Controllers\TasksControler;
+use App\Http\Controllers\FallBackControler;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/home', function(){
-    return view('home');
-})->name('home');
+Route::get('/', [HomeControler::class, 'index']);
 
-Route::get('/users', function(){
-    return view('users.all_users');
-})->name('users.show');
+Route::get('/home', [HomeControler::class, 'index'])->name('home');
 
-Route::get('/hello/{name}', function($name){
-    return '<h1>Hello </h1>'.$name;
-})->name('hello.name');
+Route::get('/users', [UserControler::class, 'allUser'])->name('users.show');
 
-Route::fallback(function(){
-    return view('fallback');
-});
+Route::get('/hello/{name}', [UserControler::class, 'nameUser'] )->name('hello.name');
 
-Route::get('/add-users', function(){
-    return view('users.add_users');
-})->name('users.add');
+Route::fallback([FallBackControler::class, 'notFound']);
+
+Route::get('/add-users', [UserControler::class, 'addUser'] )->name('users.add');
+
+Route::get('/all-tasks', [TasksControler::class, 'allTasks'] )->name('tasks.all');
