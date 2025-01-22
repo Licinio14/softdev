@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class UserControler extends Controller
 {
     public function allUser(){
         $cesaeInfo = $this->getCesaeInfo();
         $userInfo = $this->getAllUsers();
-        return view('users.all_users', compact('cesaeInfo', 'userInfo'));
+
+        $contactPerson = DB::table('users')->where('name', 'Licinio')->first();
+
+        $this->updadetUserAtDB();
+
+        return view('users.all_users', compact('cesaeInfo', 'userInfo','contactPerson'));
     }
 
     public function nameUser($name){
@@ -30,11 +37,34 @@ class UserControler extends Controller
     }
 
     protected function getAllUsers(){
-        $userInfo = [
-            ['name' => 'Sara', 'id' => 1, 'phone' => '999999999'],
-            ['name' => 'Bruno', 'id' => 2, 'phone' => '888888888'],
-            ['name' => 'Márcia', 'id' => 3, 'phone' => '777777777']
-        ];
+
+        $userInfo = DB::table('users')
+        ->select('name','email','password','id')
+        ->get();
+
         return $userInfo;
+    }
+
+    public function insertUser(){
+        DB::table('users')
+        ->insert([
+            'name'=> 'Licinio3',
+            'email' => 'l3@gmail.com',
+            'address' => 'dwadwefeafraf',
+            'password' => '1234'
+        ]);
+
+        // caso usasse a rota para chamar a função, retornaria algo para informar o utilizador
+        // return response()->json('utilizador inserido');
+    }
+
+    public function updadetUserAtDB(){
+        DB::table('users')
+        ->where('id',1)
+        ->update([
+            'email_verified_at'=> now(),
+            'address' => 'Rua nova atualizada',
+            'updated_at' => now()
+        ]);
     }
 }
