@@ -14,12 +14,10 @@ return new class extends Migration
         Schema::create('gifts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
-            $table->date('due_at')->nullable();
-            $table->tinyInteger('status')->nullable();
-            $table->timestamps();
+            $table->decimal('price', 10, 2);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->decimal('costs', 10, 2);
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('gifts');
     }
 };

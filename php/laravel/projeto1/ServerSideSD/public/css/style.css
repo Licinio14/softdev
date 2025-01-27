@@ -1,18 +1,18 @@
-body{
+body {
     background-color: rgb(39, 39, 39);
     color: white;
 }
 
-.img-home{
+.img-home {
     width: 100px;
     margin: 2%;
 }
 
-.navbar-style{
+.navbar-style {
     background-color: rgb(107, 199, 194);
 }
 
-.users-input-text-style{
+.users-input-text-style {
     border-radius: 10px;
     border-style: solid;
     border-color: aqua;
@@ -20,8 +20,13 @@ body{
     padding-left: 15px;
 }
 
-h1{
+h1 {
     font-family: "Macondo", serif;
     font-weight: 800;
     font-style: normal;
+}
+
+.img-delete {
+    width: 30px;
+    margin: 2%;
 }
