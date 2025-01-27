@@ -16,6 +16,8 @@ class UserControler extends Controller
 
         $this->updadetUserAtDB();
 
+        // $this->deletUserAtDB(3);
+
         return view('users.all_users', compact('cesaeInfo', 'userInfo','contactPerson'));
     }
 
@@ -66,5 +68,13 @@ class UserControler extends Controller
             'address' => 'Rua nova atualizada',
             'updated_at' => now()
         ]);
+    }
+
+    protected function deletUserAtDB($id){
+
+        DB::table('users')
+        ->where('id',$id)
+        ->delete();
+
     }
 }

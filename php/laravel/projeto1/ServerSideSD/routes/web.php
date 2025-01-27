@@ -24,3 +24,5 @@ Route::fallback([FallBackControler::class, 'notFound']);
 Route::get('/add-users', [UserControler::class, 'addUser'] )->name('users.add');
 
 Route::get('/all-tasks', [TasksControler::class, 'allTasks'] )->name('tasks.all');
+
+Route::get('/showall-tasks', [TasksControler::class, 'showAllTasks'] )->name('tasks.showAll');

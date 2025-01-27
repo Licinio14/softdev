@@ -1,0 +1,10 @@
+Deverás criar uma tabela de gestão de prendas, com tudo o que implica: criar um controller próprio, rotas, etc.
+ 
+A tabela sql deverá ter as seguintes características:
+- nome da prenda - ex: chocolates (obrigatório)
+- valor previsto (obrigatório)
+- nome da pessoa a quem vamos dar (da tabela de users) (obrigatório)
+- valor gasto
+ 
+Os dados das prendas devem ser inseridos manualmente no SQL.
+A tabela no browser deve possibilitar ao utilizador ver as o nome da prenda, o valor previsto e a pessoa de destino. Ao clicar deve abrir uma view especifica com os dados da prenda clicada. Na tabela deve ter um botão de delete que apaga a prenda da base de dados.

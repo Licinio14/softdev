@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class TasksControler extends Controller
 {
@@ -26,5 +28,16 @@ class TasksControler extends Controller
     private function getAvailableTasks(){
         $availableTasks=['sql', 'js', 'Java', 'POO'];
         return $availableTasks;
+    }
+
+    public function showAllTasks(){
+
+        $data = DB::table('tasks')
+            ->join('users', 'tasks.user_id', '=', 'users.id' )
+            ->select('tasks.*','users.name as userName')
+            ->get();
+
+
+        return view('tasks.showall_tasks',compact('data'));
     }
 }

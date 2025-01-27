@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class HomeControler extends Controller
 {
     public function index(){
-        $myvar = 'Hello World';
+        $myvar = 'Bem-vindo ao MySite';
 
         $contactInfo = $this->getContactInfo();
 
