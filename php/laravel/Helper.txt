@@ -122,4 +122,23 @@ php artisan migrate
  \App\Models\User::TYPE_ADMIN
 
 
+_______________________________________________________________________________________________________
+
+//para chamar uma rota com parâmetros através do <a>
+<td><a class="btn btn-info" href="{{ route('users.showone', $array->id) }}">Ver</a></td>
+
+//para chamar uma rota com parâmetros através da coluna da tabela -- e muda o cursor para pointer
+ <td onclick="window.location='{{ route('gifts.info', $newData->id) }}';" style="cursor: pointer;">{{ $newData->name }}</td>
+
+
+
+
+
+
+
+
+
+
+
+
 

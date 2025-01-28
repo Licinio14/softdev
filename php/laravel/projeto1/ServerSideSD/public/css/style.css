@@ -3,6 +3,17 @@ body {
     color: white;
 }
 
+html, body {
+    height: 100%; /* Esto hace que el body ocupe toda la altura de la ventana */
+    margin: 0;    /* Elimina los márgenes por defecto */
+    display: flex;  /* Esto establece el uso de Flexbox */
+    flex-direction: column; /* Hace que los elementos se apilen en una columna */
+  }
+
+.body-div {
+flex-grow: 1;
+}
+
 .img-home {
     width: 100px;
     margin: 2%;
@@ -29,4 +40,22 @@ h1 {
 .img-delete {
     width: 30px;
     margin: 2%;
+}
+
+.footer-color{
+    background-color: rgb(107, 199, 194);
+    color: white;
+}
+
+.footer-text-link-color{
+    text-decoration: none;
+    color: inherit;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.message-add-user-sucess{
+    background-color: lightgreen;
+    color: black;
+    border-radius: 20px;
 }

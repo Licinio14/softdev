@@ -21,59 +21,67 @@
 </head>
 
 <body>
-    {{-- nabvar --}}
-    <nav class="navbar navbar-expand-lg navbar-style">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('home') }}">MySite</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            More Options
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('users.show') }}">Show Users</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="{{ route('users.add') }}">Add Users</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="{{ route('gifts.all') }}">Show All Gifts</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tasks.all') }}">Tasks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tasks.showAll') }}">All Tasks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
 
-    {{-- container para o conteudo nao ficar colado a lateral --}}
-    <div class="container">
-        {{-- chamar o conteudo // 'content' é o nome que vai chamar --}}
-        @yield('batatas')
-        <br>
-        @yield('content')
-    </div>
+        {{-- nabvar --}}
+        <nav class="navbar navbar-expand-lg navbar-style">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ route('home') }}">MySite</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                More Options
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('users.show') }}">Show All Users</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ route('users.add') }}">Add Users</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ route('gifts.all') }}">Show All Gifts</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item disabled" href="{{ route('tasks.all') }}">Show Tasks</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ route('tasks.showAll') }}">Show All Tasks</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ route('tasks.add') }}">ADD Tasks</a></li>
+                            </ul>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        </li> --}}
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        {{-- container para o conteudo nao ficar colado a lateral --}}
+        <div class="container body-div">
+            {{-- chamar o conteudo // 'content' é o nome que vai chamar --}}
+            @yield('batatas')
+            <br>
+            @yield('content')
+        </div>
+
+    {{-- footer --}}
+    <footer class="text-center text-lg-start footer-color">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+          © 2025 Copyright:
+          <a class="text-body footer-text-link-color" target="_blank" href="https://licinio14.github.io/">Site exemplo</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
 
 
     {{-- script bootstrap --}}

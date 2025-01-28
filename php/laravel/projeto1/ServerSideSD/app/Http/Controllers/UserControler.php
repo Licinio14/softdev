@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UserControler extends Controller
 {
@@ -70,11 +72,100 @@ class UserControler extends Controller
         ]);
     }
 
-    protected function deletUserAtDB($id){
+    public function deletUserAtDB($id){
+
+        DB::table('tasks')
+        ->where('user_id',$id)
+        ->delete();
+
+        DB::table('gifts')
+        ->where('user_id',$id)
+        ->delete();
 
         DB::table('users')
         ->where('id',$id)
         ->delete();
 
+
+
+
+        return back();
+
     }
+
+    public function showOneUser($id){
+
+        $userInfo = DB::table('users')
+        ->where('id',$id)
+        ->select('name','email','id','address','nif')
+        ->first();
+
+        return view('users.one_users', compact('userInfo'));
+    }
+
+    public function createUser(Request $request){
+
+        $request->validate([
+            'name' => 'required|string|min:3',
+            'email' => 'required|email|unique:users',
+            'pd' => 'required|min:8',
+            'address' => 'required|min:5',
+            'cbox' => 'required'
+        ]);
+
+        User::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->pd),
+            'address' => $request->address,
+        ]);
+
+        return redirect()->route('users.show')->with('message','User adicionado com sucesso');
+
+    }
+
+    public function updateUser($id){
+
+        $inf = DB::table('users')
+        ->where('id',$id)
+        ->first();
+
+        return view('users.update_users', compact('inf'));
+    }
+
+    public function updateUserInfo(Request $request){
+
+        // $id_validation = DB::table('users')
+        // ->where('id',$request->id)
+        // ->first();
+
+        // if (!$id_validation){
+        //     dd('nao existe');
+        //     $request->id;
+        // }
+
+        $request->validate([
+            'id' => 'required|exists:users,id',
+            'name' => 'required|string|min:3',
+            'email' => 'required|email|unique:users',
+            'address' => 'required|min:5',
+        ]);
+
+
+        DB::table('users')
+        ->where('id',$request->id)
+        ->update([
+            'updated_at' => now(),
+            'name'=> $request->name,
+            'email' => $request->email,
+            'address' => $request->address
+        ]);
+
+
+
+        return redirect()->route('users.show')->with('message','User modificado com sucesso');
+
+    }
+
+
 }

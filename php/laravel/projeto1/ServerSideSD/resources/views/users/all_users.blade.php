@@ -3,6 +3,12 @@
 
 @section('content')
 
+    @if (session('message'))
+        <div class="container-fluid message-add-user-sucess text-center">
+            <h3>{{session('message')}}</h3>
+        </div>
+    @endif
+
     <h1>Aqui vês todos os users</h1>
 
     <hr><hr>
@@ -19,16 +25,19 @@
             <td>ID</td>
             <td>Name</td>
             <td>Email</td>
-            <td>Password</td>
+            <td></td>
+            <td></td>
         </tr>
 
         @foreach ($userInfo as $array)
 
                 <tr>
-                    <td>ID: {{ $array->id}}</td>
-                    <td>Name: {{ $array->name}}</td>
-                    <td>Email: {{ $array->email}}</td>
-                    <td>Password: {{ $array->password}}</td>
+                    <td>{{ $array->id}}</td>
+                    <td>{{ $array->name}}</td>
+                    <td>{{ $array->email}}</td>
+                    <td><a class="btn btn-info" href="{{ route('users.showone', $array->id) }}">Ver</a>
+                    <a class="btn btn-danger" href="{{ route('users.deleteOne', $array->id) }}">Apagar</a>
+                    <a class="btn btn-danger" href="{{ route('users.update', $array->id) }}">Modificar</a></td>
                 </tr>
 
         @endforeach
