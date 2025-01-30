@@ -344,6 +344,8 @@ INSERT INTO empregado (nome, numseccao, posto, chefe, salario, comissao) VALUES
     ('Susana',20,'Administrador',null,2750,30),
     ('Cláudio',60,'Vendedor',4,1000,50);
 
+Alter TABLE empregado ADD CONSTRAINT FK_FOREIGN_EMPREGADO FOREIGN KEY (chefe) REFERENCES empregado (numEmp);
+
 
 /* respostas:
 4
@@ -357,6 +359,198 @@ INSERT INTO empregado (nome, numseccao, posto, chefe, salario, comissao) VALUES
     h: mostra o nome dos empregados começados e acabados em 'a'
     i: mostra o nome, salario do empregado e o nome, salario do chefe dele quando o salario do chefe é menor que o do empregado
     j: mostra o nome dos empregados que nao estao na seccao 10, mas tem o mesmo posto dos que estao na seccao 10 
-    k: 
+    k: mostra o nome do empregado e do chefe onde o salario do empregado for superior ou igual a 2 vezes o do chefe
+    l: mostra a informação do empregados que estao nos postos 20, 30 e 40
+    m: mostra o nome da secção e a cidade, onde tem empregados na base de dados
+    n: mostra a soma do salario do empregado vezes 14 mais 0.5 do salario vezes 12 onde o posto do empregado é Engenheiro, ou programagor
+    o: mostra a quantidade de empregados agrupado por secção com o nome da coluna num_emp
+    p: mostra a soma do salario, com o nome salario_tot, agrupado por secção
+    q: mostra o posto e a contagem de empregados, com o nome num_emp, agrupado por postos
+    r: mostra o posto e a media de salario agrupado por posto com o nome num_emp
+    s: mostra o posto e o salario maximo encontrado em cada posto, com o nome max_salario
+    t: mostra os postos e a contagem de empregados, com o nome num_emp, agrupado por posto onde tenha mais de um empregados
+    u: mostra o posto e a media de salario dos empregados, agrupados por posto que tenha mais de 1 empregado
+
 
 */
+
+
+ex5:
+
+CREATE TABLE Cliente (
+	id int AUTO_INCREMENT,
+    nome varchar(50) not null,
+    morada varchar(250),
+    estado bit,
+    CONSTRAINT PK_CLIENTE PRIMARY KEY (id)
+);
+
+CREATE TABLE Produto (
+	id int AUTO_INCREMENT,
+    descricao varchar(100) not null,
+    preco numeric(10,2),
+    CONSTRAINT PK_PRODUTO PRIMARY KEY (id)
+);
+
+CREATE TABLE Venda (
+  	prod int,
+  	idCliente int,
+    `data` datetime,
+    qtd int,
+    CONSTRAINT PK_VENDA PRIMARY KEY (prod, idCliente,`data`),
+    CONSTRAINT PK_FOREIGN_CLIENTE FOREIGN KEY (idCliente) REFERENCES Cliente (id),
+    CONSTRAINT PK_FOREIGN_PRODUTO FOREIGN KEY (prod) REFERENCES Produto (id)
+);
+
+INSERT INTO cliente (nome, morada, estado) VALUES ('Helena Monteiro','Perafita-Freixieiro',1),('Raul Simas','Palmela',0);
+
+INSERT INTO Produto (descricao, preco) VALUES ('Rato Logitec XPTO 1',10),('Monitor Sony Vaio XPTO',120);
+
+INSERT INTO Venda (idCliente, prod, qtd, data) VALUES (1,1,1,'2012-04-05'),(2,1,5,'2012-04-05');
+
+UPDATE venda SET qtd = 10 where idCliente = 2;
+
+UPDATE cliente SET morada = 'Porto' where nome like 'Raul%';
+
+UPDATE produto set preco = 100 where id = 2;
+
+SELECT c.nome, v.prod, v.qtd, v.data FROM venda v INNER JOIN cliente c ON v.idCliente = c.id where c.nome like 'Raul Simas';
+
+SELECT c.nome, v.prod, v.qtd, v.data FROM venda v INNER JOIN cliente c ON v.idCliente = c.id where c.nome like 'H%';
+
+SELECT c.nome, COUNT(v.prod) FROM venda v INNER JOIN cliente c ON v.idCliente = c.id where c.nome like 'Raul Simas';
+
+select c.nome from cliente c LEFT JOIN venda v on c.id = v.idCliente where v.idCliente is null;
+
+select v.`data`, sum(p.preco * v.qtd) as vendaDiaria From venda v INNER JOIN produto p on v.prod = p.id GROUP BY v.`data`;
+
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+ex6:
+
+use DATABASE licinio_encomendas;
+
+CREATE TABLE Cliente (
+	codCliente int not null AUTO_INCREMENT,
+    nome varchar(50) NOT null,
+    morada varchar(100) not null,
+    telef varchar(20),
+    CONSTRAINT PK_CLIENTE PRIMARY KEY (codCliente)
+);
+
+CREATE TABLE Produto (
+	codProduto int not null AUTO_INCREMENT,
+    descricao varchar(250) not null,
+    preco decimal(10,8) not null,
+    obs varchar(100),
+    CONSTRAINT PK_PRODUTO PRIMARY KEY (codProduto)
+);
+
+Alter TABLE produto MODIFY preco decimal(10,2)
+
+CREATE TABLE Encomenda (
+	codEncomenda int not null AUTO_INCREMENT,
+    codCliente int not null,
+    `data` date,
+    CONSTRAINT PK_ENCOMENDA PRIMARY KEY (codEncomenda),
+    CONSTRAINT PK_FOREIGN_CLIENTE FOREIGN KEY (codCliente) REFERENCES Cliente (codCliente)
+);
+
+CREATE TABLE LinhaEncomenda (
+	codEncomenda int not null,
+    codProduto int not null,
+    quantidade int not null,
+    desconto int,
+    CONSTRAINT PK_LINHAENCOMENDA PRIMARY KEY (codEncomenda, codProduto),
+    CONSTRAINT FK_LINHAENCOMENDA_CODPRODUTO FOREIGN KEY (codProduto) REFERENCES produto (codProduto),
+    CONSTRAINT FK_LINHAENCOMENDA_CODENCOMENDA FOREIGN KEY (codEncomenda) REFERENCES Encomenda (codEncomenda)
+);
+
+INSERT INTO cliente (nome, morada, telef) VALUES
+('Licinio', 'Rua da esquina','123456789'),
+('Fabio', 'Rua da outra esquina', '123456789'),
+('Maria', 'Rua da esquina da outra esquina', '123456789');
+
+INSERT INTO produto (descricao, preco) VALUES
+('Portatil', 1999.99),
+('teclado',99.95),
+('monitor',149.99);
+
+INSERT INTO encomenda (codCliente,`data`) VALUES
+(1,'2024-12-20'),
+(1,'2024-06-01'),
+(2,'2024-09-09');
+
+INSERT INTO linhaencomenda (codEncomenda,codProduto,quantidade) VALUES
+(1,4,25),
+(1,5,25),
+(2,6,1);
+
+SELECT * from cliente WHERE morada like 'rua da e%' ORDER BY nome;
+
+SELECT * from produto where descricao like 'martelo' order by preco
+
+SELECT DISTINCT(e.`data`) from encomenda e INNER JOIN cliente c on e.codCliente = c.codCliente WHERE c.nome like 'Fabio'
+
+SELECT sum(l.quantidade) as 'total de produtod', c.nome FROM encomenda e 
+INNER JOIN cliente c on e.codCliente = c.codCliente
+INNER JOIN linhaencomenda l on l.codEncomenda = e.codEncomenda
+INNER JOIN produto p on p.codProduto = l.codProduto
+WHERE c.codCliente = 1
+GROUP BY c.codCliente
+
+SELECT sum(l.quantidade) as 'total de produtod', c.nome, p.descricao FROM encomenda e 
+INNER JOIN cliente c on e.codCliente = c.codCliente
+INNER JOIN linhaencomenda l on l.codEncomenda = e.codEncomenda
+INNER JOIN produto p on p.codProduto = l.codProduto
+WHERE c.codCliente = 1
+GROUP BY p.descricao
+
+SELECT sum(p.preco * l.quantidade) as 'total por encomenda', e.codEncomenda FROM encomenda e 
+INNER JOIN linhaencomenda l on e.codEncomenda = l.codEncomenda
+INNER JOIN produto p on p.codProduto = l.codProduto
+GROUP by e.codEncomenda
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+ex7:
+
+create DATABASE licinio_Campeonato;
+
+CREATE TABLE Equipas (
+	id_equipa int AUTO_INCREMENT,
+    nome varchar(50) not null UNIQUE,
+    cidade varchar(50) not null,
+    diretor varchar(50) not null,
+  	CONSTRAINT PK_EQUIPAS PRIMARY KEY (id_equipa)
+);
+
+CREATE TABLE Treinadores (
+	id_treinador int AUTO_INCREMENT,
+    nome varchar(50) not null,
+    idade int not null,
+    telefone int not null,
+  	CONSTRAINT PK_TREINADORES PRIMARY KEY (id_treinador)
+);
+
+CREATE TABLE Bolas (
+	referencia int not null,
+    id_equipa int not null,
+    fabricante varchar(50) not null,
+  	CONSTRAINT PK_BOLAS PRIMARY KEY (referencia),
+    CONSTRAINT FK_BOLAS_EQUIPA FOREIGN KEY (id_equipa) REFERENCES equipas (id_equipa)
+);
+
+create TABLE Experiencias (
+	id_equipa int not null,
+    id_treinador int not null,
+    escalao varchar(20) not null,
+    anos int not null,
+    CONSTRAINT PK_EXPERIENCIAS PRIMARY KEY (id_equipa,id_treinador,escalao),
+    CONSTRAINT FK_EXPERIENCIAS_EQUIPAS FOREIGN KEY (id_equipa) REFERENCES Equipas (id_equipa),
+    CONSTRAINT FK_EXPERIENCIAS_TREINADORES FOREIGN KEY (id_treinador) REFERENCES treinadores (id_treinador)
+);
+
