@@ -15,7 +15,7 @@ public class JatoParticular extends Aviao{
     /**
      *
      * @param numSerie numero do aviao (int)
-     * @param modelo nome do modelo do aviao (string)
+     * @param modelo ingrediente do modelo do aviao (string)
      * @param anoFabrico ano de construção do aviao (int)
      * @param peso peso total do aviao em kg (double)
      * @param comprimentoFuselagem comprimento do aviao em metros (double)
