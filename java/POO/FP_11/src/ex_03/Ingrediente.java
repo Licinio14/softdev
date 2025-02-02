@@ -3,19 +3,19 @@ package ex_03;
 import ex_03.enums.Medida;
 
 public class Ingrediente {
-    protected int codigo;
+    protected String codigo;
     protected String nome;
     protected Medida medida;
-    protected int kcalMedida;
+    protected Double kcalMedida;
 
-    public Ingrediente(int codigo, String nome, Medida medida, int kcalMedida) {
+    public Ingrediente(String codigo, String nome, Medida medida, Double kcalMedida) {
         this.codigo = codigo;
         this.nome = nome;
         this.medida = medida;
         this.kcalMedida = kcalMedida;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
@@ -27,7 +27,9 @@ public class Ingrediente {
         return medida;
     }
 
-    public int getKcalMedida() {
+    public Double getKcalMedida() {
         return kcalMedida;
     }
+
+
 }

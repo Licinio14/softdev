@@ -18,7 +18,7 @@ public class ListaIngredientes {
     }
 
     public void EditarQuantidade(double quantidade) {
-        this.quantidade = quantidade;
+        this.quantidade += quantidade;
     }
 
     protected double CalcularCalorias() {
