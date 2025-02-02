@@ -51,3 +51,9 @@ Route::post('/create-tasks', [TasksControler::class, 'createTasks'])->name('task
 Route::get('/update-users/{id}', [UserControler::class, 'updateUser'] )->name('users.update');
 
 Route::post('/update-user', [UserControler::class, 'updateUserInfo'])->name('users.updateInfo');
+
+Route::post('/create-gifts', [GiftsControler::class, 'createGifts'])->name('gifts.create');
+
+Route::get('/update-gifts/{id}', [GiftsControler::class, 'updateGifts'] )->name('gifts.update');
+
+Route::post('/update-gifts', [GiftsControler::class, 'updateGiftInfo'])->name('gifts.updateGift');
