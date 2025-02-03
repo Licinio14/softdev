@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Converspr de Moeda"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_marginTop="200dp"
+        />
+
+    <EditText
+        android:id="@+id/edit_valor_euros"
+        android:hint="Insira o valor em Euros"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="Insira o valor em euros"
+        android:layout_margin="5dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/btts_horizontal_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        tools:context=".MainActivity">
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_real"
+                android:text="Real"
+                android:gravity="center"
+                android:layout_margin="2dp"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_dolar"
+                android:text="Dolar"
+                android:gravity="center"
+                android:layout_margin="2dp"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_peso"
+                android:text="Peso"
+                android:gravity="center"
+                android:layout_margin="2dp"
+                />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/byDeveloper"
+        android:text="Desenvolvido por: Licinio"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_marginTop="400dp"
+        />
+
+
+</LinearLayout>

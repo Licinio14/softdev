@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#D1D1D1"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/ex4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="#2538cc"
+        android:gravity="center"
+        android:minHeight="50dp"
+        android:text="04_Ex4"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bem-Vindo"
+        android:id="@+id/bem_vindo"
+        android:layout_marginTop="80dp"
+        android:fontFamily="casual"
+        android:textColor="#2538cc"
+        android:textSize="50sp"
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/information"
+        android:text="Preencha o seu username e password para continuar"
+        android:textSize="20sp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username: "
+            android:gravity="center"
+            android:fontFamily="sans-serif-black"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:gravity="center"
+            android:minWidth="200dp"
+            android:id="@+id/text_Username"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password: "
+            android:gravity="center"
+            android:fontFamily="sans-serif-black"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minWidth="200dp"
+            android:hint="Password"
+            android:id="@+id/text_password"
+            android:inputType="textPassword"
+            />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/bttEntrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:backgroundTint="#2538cc"
+        android:padding="30dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:text="Entrar"
+        app:cornerRadius="50px"
+        android:shadowColor="@color/black"
+        android:shadowRadius="10"
+        android:shadowDx="8"
+        android:shadowDy="8"
+        />
+
+
+</LinearLayout>
