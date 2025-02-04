@@ -17,18 +17,6 @@
         android:textSize="50sp"
         />
 
-    <ImageView
-        android:id="@+id/gifImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/loading_13408_512" />
+    
 
 </LinearLayout>
