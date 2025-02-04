@@ -130,10 +130,17 @@ ________________________________________________________________________________
 //para chamar uma rota com parâmetros através da coluna da tabela -- e muda o cursor para pointer
  <td onclick="window.location='{{ route('gifts.info', $newData->id) }}';" style="cursor: pointer;">{{ $newData->name }}</td>
 
+//gerar a key
+php artisan key:generate
+
+//ver a versão do laravel
+php artisan --version
 
 
+//vs code pets
 
-
+//testing para emails
+https://mailtrap.io/
 
 
 

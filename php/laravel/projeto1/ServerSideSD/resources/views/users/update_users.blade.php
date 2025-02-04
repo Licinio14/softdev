@@ -14,20 +14,20 @@
 
         </fieldset>
         <fieldset>
-            <legend>Name: </legend>
-            <input type="text" placeholder="Utilizador" id="name" name="name" value="{{$inf->name}}" class="users-input-text-style"><br>
-            @error('name')
-                Nome invalido
-            @enderror
-        </fieldset>
-        <br>
-        <fieldset>
             <legend>Email: </legend>
-            <input type="text" placeholder="Utilizador" id="email" name="email" value="{{$inf->email}}" class="users-input-text-style"><br>
+            <input type="text" placeholder="Utilizador" id="email" name="email" value="{{$inf->email}}" disabled class="users-input-text-style" style="background-color: lightgrey"><br>
             @error('email')
                 Email invalido
             @enderror
         </fieldset>
+        <br>
+            <fieldset>
+                <legend>Name: </legend>
+                <input type="text" placeholder="Utilizador" id="name" name="name" value="{{$inf->name}}" class="users-input-text-style"><br>
+                @error('name')
+                    Nome invalido
+                @enderror
+            </fieldset>
         <br>
         <fieldset>
             <legend>Address : </legend>
@@ -36,8 +36,16 @@
                 Address invalido
             @enderror
         </fieldset>
+        <br>
+        <fieldset>
+            <legend>NIF : </legend>
+            <input type="text" placeholder="Utilizador" id="nif" name="nif" value="{{$inf->nif}}" class="users-input-text-style"><br>
+            @error('nif')
+                NIF invalido
+            @enderror
+        </fieldset>
         <br><hr>
-        <button type="submit" class="btn btn-primary">Send Form</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
         @error('id')
             <br>
             Ocurreu um erro inesperado!
