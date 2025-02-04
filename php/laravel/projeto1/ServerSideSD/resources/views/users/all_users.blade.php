@@ -50,9 +50,11 @@
                     <td>{{ $array->email}}</td>
                     <td><a class="btn btn-info" href="{{ route('users.showone', $array->id) }}">Ver</a>
                     <a class="btn btn-danger" href="{{ route('users.update', $array->id) }}">Modificar</a>
-                        @if (Auth::user()->email == 'admin@gmail.com')
-                            <a class="btn btn-danger" href="{{ route('users.deleteOne', $array->id) }}">Apagar</a>
-                        @endif
+                        @auth
+                            @if (Auth::user()->email == 'admin@gmail.com')
+                                <a class="btn btn-danger" href="{{ route('users.deleteOne', $array->id) }}">Apagar</a>
+                            @endif
+                        @endauth
                     </td>
                 </tr>
 
