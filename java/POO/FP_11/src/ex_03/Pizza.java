@@ -155,7 +155,7 @@ public class Pizza {
                 case UNIDADES -> medida = " uni.";
                 default -> medida = ".";
             }
-            System.out.println("Ingrediente " + i + ": " + "[ " + novoIng.getCodigo() + " | " + novoIng.getNome() + " | " + novoIng.getMedida() + " | " + novoIng.getKcalMedida() + " Kcal]: " + this.ingredientes.get(i).getQuantidade() + medida);
+            System.out.println("Ingrediente " + (i + 1) + ": " + "[ " + novoIng.getCodigo() + " | " + novoIng.getNome() + " | " + novoIng.getMedida() + " | " + novoIng.getKcalMedida() + " Kcal]: " + this.ingredientes.get(i).getQuantidade() + medida);
         }
     }
 

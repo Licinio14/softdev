@@ -22,8 +22,15 @@ public class Main {
         System.out.println("_________________________________________________________________________");
 
 
-        System.out.print("\nMassa Alta: ");
-        validacao = portuguesa.AdicionarIngrediente(massaAlta,200.0);
+        ListaIngredientes listaQueijo = new ListaIngredientes(queijo,150);
+        ListaIngredientes listachourica = new ListaIngredientes(chourica,10);
+        ListaIngredientes listaPimentoVerde = new ListaIngredientes(pimentoVerde,5);
+        ListaIngredientes listaCalabreza = new ListaIngredientes(calabreza,15);
+
+
+
+        System.out.print("\nQueijo de Cabra: ");
+        validacao = portuguesa.AdicionarToppings(listaQueijo);
         if (validacao) {
             System.out.print("Adicionado!");
         }else {
@@ -31,15 +38,7 @@ public class Main {
         }
 
         System.out.print("\nQueijo de Cabra: ");
-        validacao = portuguesa.AdicionarIngrediente(queijo,75.0);
-        if (validacao) {
-            System.out.print("Adicionado!");
-        }else {
-            System.out.print("Não adicionado!");
-        }
-
-        System.out.print("\nQueijo de Cabra: ");
-        validacao = portuguesa.AdicionarIngrediente(queijo,75.0);
+        validacao = portuguesa.AdicionarToppings(listaQueijo);
         if (validacao) {
             System.out.print("Adicionado!");
         }else {
@@ -47,15 +46,7 @@ public class Main {
         }
 
         System.out.print("\nRodelas Chouriça: ");
-        validacao = portuguesa.AdicionarIngrediente(chourica,10.0);
-        if (validacao) {
-            System.out.print("Adicionado!");
-        }else {
-            System.out.print("Não adicionado!");
-        }
-
-        System.out.print("\nMolho: ");
-        validacao = portuguesa.AdicionarIngrediente(molhoTomate,0.09);
+        validacao = portuguesa.AdicionarToppings(listachourica);
         if (validacao) {
             System.out.print("Adicionado!");
         }else {
@@ -63,7 +54,7 @@ public class Main {
         }
 
         System.out.print("\nFatias Pimento Verde: ");
-        validacao = portuguesa.AdicionarIngrediente(pimentoVerde,6.0);
+        validacao = portuguesa.AdicionarToppings(listaPimentoVerde);
         if (validacao) {
             System.out.print("Adicionado!");
         }else {
@@ -71,7 +62,7 @@ public class Main {
         }
 
         System.out.print("\nFatias Calabreza: ");
-        validacao = portuguesa.AdicionarIngrediente(calabreza,6.0);
+        validacao = portuguesa.AdicionarToppings(listaCalabreza);
         if (validacao) {
             System.out.print("Adicionado!");
         }else {
@@ -81,7 +72,6 @@ public class Main {
         System.out.println("\n_________________________________________________________________________\n");
 
         portuguesa.InfoPrint();
-
-
+        
     }
 }
