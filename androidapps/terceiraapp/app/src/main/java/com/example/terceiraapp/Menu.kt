@@ -22,5 +22,17 @@ class Menu : AppCompatActivity() {
         binding.bttCalcularSemanasHorasDias.setOnClickListener {
             startActivity(Intent(this,CalcularSemanas::class.java))
         }
+
+        binding.bttExPassarVariaveis.setOnClickListener {
+            startActivity(Intent(this,exMudarNomeHome::class.java))
+        }
+
+        binding.bttExPedirInformacao.setOnClickListener {
+            startActivity(Intent(this,PedirInformacoesUser::class.java))
+        }
+
+        binding.bttExFazerOperacoesAleatorias.setOnClickListener {
+            startActivity(Intent(this,PedirPrimeiroNumero::class.java))
+        }
     }
 }

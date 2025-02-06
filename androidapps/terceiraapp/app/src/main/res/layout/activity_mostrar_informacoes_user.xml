@@ -7,27 +7,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".splash">
+    tools:context=".MostrarInformacoesUser"
+
+    >
 
     <TextView
+        android:id="@+id/mostrarInformacaoUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Carregando"
-        android:fontFamily="cursive"
-        android:textSize="50sp"
+        android:ems="10"
+        android:gravity="start"
+        android:padding="20dp"
         />
 
-    <TextView
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text=""
-        android:fontFamily="cursive"
-        android:textSize="50sp"
-        android:id="@+id/label_carregando"
+        android:text="Voltar"
+        android:id="@+id/btt_mostrar_informacao_voltar"
         />
-
-    
-
 </LinearLayout>

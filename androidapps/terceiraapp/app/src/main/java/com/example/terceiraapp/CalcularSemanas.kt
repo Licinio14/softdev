@@ -22,7 +22,7 @@ class CalcularSemanas : AppCompatActivity() {
             inputHoras = inputHoras - (semanas*7*24)
             var dias: Int = inputHoras / 24
             inputHoras = inputHoras - (dias * 24)
-            var horas: Int = inputHoras;
+            var horas: Int = inputHoras
 
             binding.resultadoHorasParaSemanas.text = semanas.toString()
             binding.resultadoHorasParaDias.text = dias.toString()

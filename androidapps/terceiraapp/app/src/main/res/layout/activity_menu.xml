@@ -34,5 +34,27 @@
         android:id="@+id/btt_calcular_semanas_horas_dias"
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EX: passar variaveis"
+        android:id="@+id/btt_ex_passar_variaveis"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EX: Pedir informação"
+        android:id="@+id/btt_ex_pedir_informacao"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EX: Pedir numeros e calcular"
+        android:id="@+id/btt_ex_fazer_operacoes_aleatorias"
+        />
+
+
 
 </LinearLayout>

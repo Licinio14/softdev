@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".exMudarNomeHome">
+
+
+    <TextView
+        android:id="@+id/corner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="#008CFF"
+        android:gravity="center"
+        android:text="Ex 06"
+        android:textSize="32dp"
+        app:cornerRadius="5px" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/label_ola_usuario"
+        android:text="Ola usuario"
+        android:gravity="center"
+        android:textSize="32dp"
+        android:layout_marginTop="80dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mudar nome"
+        android:gravity="center"
+        android:layout_margin="35dp"
+        android:id="@+id/btt_mudar_o_nome_na_label"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Voltar a Home"
+        android:gravity="center"
+        android:layout_margin="35dp"
+        android:id="@+id/btt_mudar_o_nome_na_label_home"
+        />
+
+</LinearLayout>
