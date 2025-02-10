@@ -2,40 +2,38 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/btt_mandar_primeiro_numero"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PedirPrimeiroNumero">
+    tools:context=".MenuBlocoNotas">
 
-    <EditText
-        android:id="@+id/input_pedir_primeiro_numero"
+    <Button
+        android:id="@+id/btt_inserir_notas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:ems="10"
-        android:hint="Primeiro Numero"
-        android:inputType="number"
+        android:layout_marginTop="262dp"
+        android:text="Inserir Notas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btt_ver_notas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="Proxima Pagina"
+        android:layout_marginTop="147dp"
+        android:text="Ver Notas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_pedir_primeiro_numero" />
+        app:layout_constraintTop_toBottomOf="@+id/btt_inserir_notas" />
 
     <Button
-        android:id="@+id/btt_pedir_primeiro_numero_home"
+        android:id="@+id/btt_menu_notas_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="132dp"
         android:text="Home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btt_ver_notas" />
 </androidx.constraintlayout.widget.ConstraintLayout>

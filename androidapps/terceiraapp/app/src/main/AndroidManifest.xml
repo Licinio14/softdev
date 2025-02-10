@@ -13,32 +13,62 @@
         android:theme="@style/Theme.Terceiraapp"
         tools:targetApi="31">
         <activity
+            android:name=".VerNotas"
+            android:exported="false" />
+        <activity
+            android:name=".InserirNotas"
+            android:exported="false" />
+        <activity
+            android:name=".MenuBlocoNotas"
+            android:exported="false" />
+        <activity
+            android:name=".PaginaHorizontalMostrar"
+            android:exported="false" />
+        <activity
+            android:name=".MostrarPaginaExemplo"
+            android:exported="false" />
+        <activity
+            android:name=".MostrarInformacaoDoAluno"
+            android:exported="false" />
+        <activity
+            android:name=".ExMostrarListaAlunos"
+            android:exported="false" />
+        <activity
+            android:name=".ExercicioListView"
+            android:exported="false" />
+        <activity
+            android:name=".MostrarContasPrimeiroSegundoNumero"
+            android:exported="false" />
+        <activity
+            android:name=".PedirSegundoNumero"
+            android:exported="false" />
+        <activity
             android:name=".PedirPrimeiroNumero"
             android:exported="false" />
         <activity
             android:name=".MostrarInformacoesUser"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".PedirInformacoesUser"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ExMudarNomeForm"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".exMudarNomeHome"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".CalcularSemanas"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".Menu"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".LoginokActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".page1"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".splash"
             android:exported="true">

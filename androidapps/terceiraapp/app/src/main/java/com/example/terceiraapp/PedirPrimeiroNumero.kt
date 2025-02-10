@@ -1,5 +1,6 @@
 package com.example.terceiraapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.terceiraapp.databinding.ActivityPedirPrimeiroNumeroBinding
@@ -13,6 +14,17 @@ class PedirPrimeiroNumero : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        binding.bttMandarPrimeiroNumero.setOnClickListener {
+            var num1 = binding.inputPedirPrimeiroNumero.text.toString()
+            val i = Intent(this,PedirSegundoNumero::class.java)
+            i.putExtra("num1",num1)
+            startActivity(i)
+        }
+
+        binding.bttPedirPrimeiroNumeroHome.setOnClickListener {
+            startActivity(Intent(this,Menu::class.java))
+        }
 
     }
 }
