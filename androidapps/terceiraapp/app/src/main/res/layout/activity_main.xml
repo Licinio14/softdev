@@ -105,21 +105,36 @@
 
 
     <Button
-        android:id="@+id/bttEntrar"
-        android:layout_width="match_parent"
+        android:id="@+id/btt_criar_user"
+        android:layout_width="267dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="80dp"
         android:backgroundTint="#2538cc"
         android:padding="30dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:text="Entrar"
-        app:cornerRadius="50px"
         android:shadowColor="@color/black"
-        android:shadowRadius="10"
         android:shadowDx="8"
         android:shadowDy="8"
-        />
+        android:shadowRadius="10"
+        android:text="Resgistar"
+        app:cornerRadius="50px" />
+
+    <Button
+        android:id="@+id/bttEntrar"
+        android:layout_width="267dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="80dp"
+        android:backgroundTint="#2538cc"
+        android:padding="30dp"
+        android:shadowColor="@color/black"
+        android:shadowDx="8"
+        android:shadowDy="8"
+        android:shadowRadius="10"
+        android:text="Entrar"
+        app:cornerRadius="50px" />
 
 
 </LinearLayout>
