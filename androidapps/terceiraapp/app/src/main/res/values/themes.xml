@@ -6,4 +6,16 @@
     </style>
 
     <style name="Theme.Terceiraapp" parent="Base.Theme.Terceiraapp" />
+
+    <style name="Theme.Terceiraapp.Fullscreen" parent="Theme.Terceiraapp">
+        <item name="android:actionBarStyle">@style/Widget.Theme.Terceiraapp.ActionBar.Fullscreen
+        </item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="ThemeOverlay.Terceiraapp.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
 </resources>

@@ -8,17 +8,17 @@
     tools:context=".InserirNotas">
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btt_inserir_nostas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="277dp"
-        android:text="Button"
+        android:text="Guardar Nota"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btt_inserir_nota" />
+        app:layout_constraintTop_toBottomOf="@+id/input_inserir_notas" />
 
     <EditText
-        android:id="@+id/btt_inserir_nota"
+        android:id="@+id/input_inserir_notas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="334dp"
@@ -37,5 +37,6 @@
         android:text="Voltar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/btt_inserir_nostas" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

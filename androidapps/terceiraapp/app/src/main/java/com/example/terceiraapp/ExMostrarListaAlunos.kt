@@ -38,6 +38,7 @@ class ExMostrarListaAlunos : AppCompatActivity() {
             startActivity(i)
         }
 
+
         bindind.bttExMostrarAlunosHome.setOnClickListener {
             startActivity(Intent(this,Menu::class.java))
         }

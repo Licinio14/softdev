@@ -9,8 +9,8 @@
 
     <ListView
         android:id="@+id/listViewEx7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="433dp"
+        android:layout_height="686dp"
         android:layout_marginTop="20dp"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintTop_toBottomOf="@+id/btt_adicionar_a_list_view"
@@ -47,4 +47,32 @@
         android:text="Home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_numero_para_list_view" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="listViewEx7" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="listViewEx7" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="listViewEx7" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="listViewEx7" />
 </androidx.constraintlayout.widget.ConstraintLayout>

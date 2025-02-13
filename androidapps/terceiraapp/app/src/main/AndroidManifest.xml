@@ -7,11 +7,29 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="LicinioApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Terceiraapp"
         tools:targetApi="31">
+        <activity
+            android:name=".FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/Theme.Terceiraapp.Fullscreen" />
+        <activity
+            android:name=".LifeCicle2"
+            android:exported="false" />
+        <activity
+            android:name=".LifeCicle1"
+            android:exported="false" />
+        <activity
+            android:name=".RelativeLayout"
+            android:exported="false" />
+        <activity
+            android:name=".PlayerDeSons"
+            android:exported="false" />
         <activity
             android:name=".RegistarUtilizador"
             android:exported="false" />
@@ -23,9 +41,6 @@
             android:exported="false" />
         <activity
             android:name=".MenuBlocoNotas"
-            android:exported="false" />
-        <activity
-            android:name=".PaginaHorizontalMostrar"
             android:exported="false" />
         <activity
             android:name=".MostrarPaginaExemplo"

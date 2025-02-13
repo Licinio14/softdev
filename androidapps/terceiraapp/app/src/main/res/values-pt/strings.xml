@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">terceiraapp</string>
+    <string name="Hello_world">Mundo Olá</string>
+    <string name="Batery_lvl">Nivel de Bateria</string>
+</resources>

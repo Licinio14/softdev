@@ -39,14 +39,14 @@
         />
 
     <TextView
+        android:id="@+id/information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/information"
-        android:text="Preencha o seu username e password para continuar"
-        android:textSize="20sp"
         android:layout_marginBottom="50dp"
         android:gravity="center"
-        />
+        android:text="Preencha o seu username e password para continuar"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,20 +58,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username: "
-            android:gravity="center"
             android:fontFamily="sans-serif-black"
-            android:textSize="20sp"
-            />
+            android:gravity="center"
+            android:text="Username: "
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <EditText
+            android:id="@+id/text_Username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Username"
             android:gravity="center"
+            android:hint="Username"
             android:minWidth="200dp"
-            android:id="@+id/text_Username"
-            />
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -85,21 +85,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password: "
-            android:gravity="center"
             android:fontFamily="sans-serif-black"
-            android:textSize="20sp"
-            />
+            android:gravity="center"
+            android:text="Password: "
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <EditText
+            android:id="@+id/text_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:minWidth="200dp"
             android:hint="Password"
-            android:id="@+id/text_password"
             android:inputType="textPassword"
-            />
+            android:minWidth="200dp"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -113,11 +113,12 @@
         android:layout_marginRight="80dp"
         android:backgroundTint="#2538cc"
         android:padding="30dp"
-        android:shadowColor="@color/black"
+        android:shadowColor="@color/material_dynamic_neutral70"
         android:shadowDx="8"
         android:shadowDy="8"
         android:shadowRadius="10"
         android:text="Resgistar"
+        android:textColor="@color/white"
         app:cornerRadius="50px" />
 
     <Button
@@ -129,11 +130,12 @@
         android:layout_marginRight="80dp"
         android:backgroundTint="#2538cc"
         android:padding="30dp"
-        android:shadowColor="@color/black"
+        android:shadowColor="@color/material_dynamic_neutral70"
         android:shadowDx="8"
         android:shadowDy="8"
         android:shadowRadius="10"
         android:text="Entrar"
+        android:textColor="@color/white"
         app:cornerRadius="50px" />
 
 

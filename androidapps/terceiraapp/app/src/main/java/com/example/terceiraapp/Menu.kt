@@ -27,6 +27,10 @@ class Menu : AppCompatActivity() {
         opcoes.add("ListView")
         opcoes.add("Mostrar Alunos")
         opcoes.add("Mostrar uma Pagina exemplo")
+        opcoes.add("Inserir e Ver notas")
+        opcoes.add("Ciclo de vida da activity")
+        opcoes.add("Player de sons")
+        opcoes.add("Full screen")
 
         binding.listViewMenu.adapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,opcoes)
 
@@ -43,6 +47,10 @@ class Menu : AppCompatActivity() {
                 5 -> startActivity(Intent(this,ExercicioListView::class.java))
                 6 -> startActivity(Intent(this,ExMostrarListaAlunos::class.java))
                 7 -> startActivity(Intent(this,MostrarPaginaExemplo::class.java))
+                8 -> startActivity(Intent(this,MenuBlocoNotas::class.java))
+                9 -> startActivity(Intent(this,LifeCicle1::class.java))
+                10 -> startActivity(Intent(this,PlayerDeSons::class.java))
+                11 -> startActivity(Intent(this,FullscreenActivity::class.java))
             }
 
         }
