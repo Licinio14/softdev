@@ -5,7 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Terceiraapp" parent="Base.Theme.Terceiraapp" />
+    <!-- <style name="Theme.Terceiraapp" parent="Base.Theme.Terceiraapp" /> -->
 
     <style name="Theme.Terceiraapp.Fullscreen" parent="Theme.Terceiraapp">
         <item name="android:actionBarStyle">@style/Widget.Theme.Terceiraapp.ActionBar.Fullscreen
@@ -17,5 +17,10 @@
     <style name="ThemeOverlay.Terceiraapp.FullscreenContainer" parent="">
         <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
         <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
+
+    <style name="Theme.Terceiraapp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 </resources>
