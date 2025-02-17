@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,6 +14,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+=======
+    android:id="@+id/pagina"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+>>>>>>> Stashed changes
     android:gravity="center"
 >>>>>>> Stashed changes
     tools:context=".MainActivity">
@@ -22,7 +29,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         android:paddingTop="10dp"
+=======
+        android:layout_marginTop="0dp"
+>>>>>>> Stashed changes
 =======
         android:layout_marginTop="0dp"
 >>>>>>> Stashed changes

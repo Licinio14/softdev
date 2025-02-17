@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     android:id="@+id/layout"
+=======
+    android:id="@+id/pagina"
+>>>>>>> Stashed changes
 =======
     android:id="@+id/pagina"
 >>>>>>> Stashed changes
@@ -25,7 +29,11 @@
 
     <Button
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         android:id="@+id/bttMandarPrimeiroNumero"
+=======
+        android:id="@+id/btt_pedir_primeiro_numero"
+>>>>>>> Stashed changes
 =======
         android:id="@+id/btt_pedir_primeiro_numero"
 >>>>>>> Stashed changes
@@ -46,7 +54,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         app:layout_constraintTop_toBottomOf="@+id/bttMandarPrimeiroNumero" />
+=======
+        app:layout_constraintTop_toBottomOf="@+id/btt_pedir_primeiro_numero" />
+>>>>>>> Stashed changes
 =======
         app:layout_constraintTop_toBottomOf="@+id/btt_pedir_primeiro_numero" />
 >>>>>>> Stashed changes
