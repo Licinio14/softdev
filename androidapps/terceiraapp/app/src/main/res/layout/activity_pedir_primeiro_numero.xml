@@ -2,15 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    android:id="@+id/layout"
-=======
     android:id="@+id/pagina"
->>>>>>> Stashed changes
-=======
-    android:id="@+id/pagina"
->>>>>>> Stashed changes
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PedirPrimeiroNumero">
@@ -28,15 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        android:id="@+id/bttMandarPrimeiroNumero"
-=======
         android:id="@+id/btt_pedir_primeiro_numero"
->>>>>>> Stashed changes
-=======
-        android:id="@+id/btt_pedir_primeiro_numero"
->>>>>>> Stashed changes
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
@@ -53,13 +37,5 @@
         android:text="@string/home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        app:layout_constraintTop_toBottomOf="@+id/bttMandarPrimeiroNumero" />
-=======
         app:layout_constraintTop_toBottomOf="@+id/btt_pedir_primeiro_numero" />
->>>>>>> Stashed changes
-=======
-        app:layout_constraintTop_toBottomOf="@+id/btt_pedir_primeiro_numero" />
->>>>>>> Stashed changes
 </androidx.constraintlayout.widget.ConstraintLayout>

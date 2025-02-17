@@ -2,41 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    android:id="@+id/layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#D1D1D1"
-=======
     android:id="@+id/pagina"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-=======
-    android:id="@+id/pagina"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
->>>>>>> Stashed changes
     android:gravity="center"
->>>>>>> Stashed changes
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/ex4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
         android:paddingTop="10dp"
-=======
         android:layout_marginTop="0dp"
->>>>>>> Stashed changes
-=======
-        android:layout_marginTop="0dp"
->>>>>>> Stashed changes
         android:background="#2538cc"
         android:fontFamily="cursive"
         android:gravity="center"
