@@ -2,7 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+<<<<<<< Updated upstream
     android:id="@+id/layout"
+=======
+    android:id="@+id/pagina"
+>>>>>>> Stashed changes
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PedirPrimeiroNumero">
@@ -13,18 +17,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
         android:ems="10"
-        android:hint="Primeiro Numero"
+        android:hint="@string/numero1"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+<<<<<<< Updated upstream
         android:id="@+id/bttMandarPrimeiroNumero"
+=======
+        android:id="@+id/btt_pedir_primeiro_numero"
+>>>>>>> Stashed changes
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
-        android:text="Proxima Pagina"
+        android:text="@string/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_pedir_primeiro_numero" />
@@ -34,8 +42,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="43dp"
-        android:text="Home"
+        android:text="@string/home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< Updated upstream
         app:layout_constraintTop_toBottomOf="@+id/bttMandarPrimeiroNumero" />
+=======
+        app:layout_constraintTop_toBottomOf="@+id/btt_pedir_primeiro_numero" />
+>>>>>>> Stashed changes
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,8 +11,13 @@
         android:id="@+id/btt_inserir_nostas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:text="Guardar Nota"
         app:layout_constraintBottom_toTopOf="@+id/btt_inserir_notas_voltar"
+=======
+        android:layout_marginTop="277dp"
+        android:text="@string/inserir_notas"
+>>>>>>> Stashed changes
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="nota"
+        android:hint="@string/nota"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/btt_inserir_nostas"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,8 +40,13 @@
         android:id="@+id/btt_inserir_notas_voltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:text="Voltar"
         app:layout_constraintBottom_toBottomOf="parent"
+=======
+        android:layout_marginTop="120dp"
+        android:text="@string/voltar"
+>>>>>>> Stashed changes
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

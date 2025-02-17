@@ -2,7 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+<<<<<<< Updated upstream
     android:id="@+id/layout"
+=======
+    android:id="@+id/pagina"
+>>>>>>> Stashed changes
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,12 +17,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Menu:"
-        android:textSize="50sp"
         android:fontFamily="cursive"
-        android:textStyle="bold|italic"
         android:gravity="center"
-        />
+        android:text="@string/menu_name"
+        android:textSize="50sp"
+        android:textStyle="bold|italic" />
 
     <ListView
         android:id="@+id/list_view_menu"

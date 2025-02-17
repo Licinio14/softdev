@@ -19,9 +19,9 @@ class LoginokActivity : AppCompatActivity() {
             var numero: Int = binding.parImparPrimoInput.text.toString().toInt()
 
             if ((numero % 2) == 0){
-                binding.respostaParImpar.text = "É par"
+                binding.respostaParImpar.text = getString(R.string.par)
             }else {
-                binding.respostaParImpar.text = "É ímpar"
+                binding.respostaParImpar.text = getString(R.string.impar)
             }
 
             var primo: Boolean = true
@@ -40,9 +40,9 @@ class LoginokActivity : AppCompatActivity() {
             }
 
             if (primo){
-                binding.respostaPrimo.text = "É primo"
+                binding.respostaPrimo.text = getString(R.string.primo)
             }else {
-                binding.respostaPrimo.text = "Não é primo"
+                binding.respostaPrimo.text = getString(R.string.naoprimo)
             }
 
         }

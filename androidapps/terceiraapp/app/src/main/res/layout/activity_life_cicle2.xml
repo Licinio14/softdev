@@ -11,7 +11,7 @@
         android:id="@+id/btt_life_cicle_go_to_p_1"
         android:layout_width="193dp"
         android:layout_height="169dp"
-        android:text="Pagina 1"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

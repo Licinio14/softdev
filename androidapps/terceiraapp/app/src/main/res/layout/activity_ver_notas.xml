@@ -21,10 +21,16 @@
     <Button
         android:id="@+id/btt_ver_notas_voltar"
         android:layout_width="wrap_content"
+<<<<<<< Updated upstream
         android:layout_height="0dp"
         android:layout_marginBottom="35dp"
         android:text="Voltar"
         app:layout_constraintBottom_toBottomOf="parent"
+=======
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/voltar"
+>>>>>>> Stashed changes
         app:layout_constraintEnd_toStartOf="@+id/btt_ver_notas_limpar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
@@ -40,9 +46,14 @@
         android:id="@+id/btt_ver_notas_limpar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:layout_marginBottom="35dp"
         android:text="Limpar"
         app:layout_constraintBottom_toBottomOf="parent"
+=======
+        android:layout_marginTop="10dp"
+        android:text="@string/limpar"
+>>>>>>> Stashed changes
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btt_ver_notas_voltar" />

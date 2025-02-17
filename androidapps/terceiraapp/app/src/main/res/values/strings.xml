@@ -1,8 +1,69 @@
 <resources>
-    <string name="app_name">terceiraapp</string>
-    <string name="title_activity_fullscreen">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="app_name">LicinioApp</string>
     <string name="Hello_world">Olá Mundo</string>
     <string name="Batery_lvl">Nivel de Bateria</string>
+
+    <string name="menu1">Par e Primos</string>
+    <string name="menu2">Horas -> Semanas</string>
+    <string name="menu3">Passar Variaveis</string>
+    <string name="menu4">Pedir Informação</string>
+    <string name="menu5">Pedir numeros e calcular</string>
+    <string name="menu6">ListView</string>
+    <string name="menu7">Mostrar Alunos</string>
+    <string name="menu8">Mostrar uma Pagina exemplo</string>
+    <string name="menu9">Inserir e Ver notas</string>
+    <string name="menu10">Ciclo de vida da activity</string>
+    <string name="menu11">Player de sons</string>
+    <string name="menu12">Full screen</string>
+
+    <string name="menu_name">Menu</string>
+    <string name="Welcome">Bem-Vindo</string>
+    <string name="login_text">Preencha o seu username e password para continuar</string>
+    <string name="user_name">Nome Utilizador:</string>
+    <string name="password">Palavra passe:</string>
+    <string name="register">Registar</string>
+    <string name="login">Entrar</string>
+    <string name="carregar">Carregando</string>
+    <string name="home">Casa</string>
+    <string name="voltar">Voltar</string>
+    <string name="limpar">Limpar</string>
+
+    <string name="som1">Som 1</string>
+    <string name="som2">Som 2</string>
+    <string name="som3">Som 3</string>
+    <string name="som4">Som 4</string>
+
+    <string name="next">Próxima página</string>
+    <string name="numero2">Segunda número</string>
+    <string name="numero1">Primeiro número</string>
+
+    <string name="nome">Nome</string>
+    <string name="morada">Morada</string>
+    <string name="telefone">Telefone</string>
+    <string name="email">Email</string>
+    <string name="femenino">Femenino</string>
+    <string name="masculino">Masculino</string>
+    <string name="submit">Enviar</string>
+
+    <string name="inserir_notas">Inserir Nota</string>
+    <string name="ver_notas">Ver Notas</string>
+    <string name="nota">Nota</string>
+
+    <string name="inserir_numero">Insira um número</string>
+
+    <string name="numero">Inserir número</string>
+
+    <string name="mudar_nome">Mudar nome</string>
+
+    <string name="horas_text">Transformar horas em semanas, dias e horas.</string>
+    <string name="inserir_horas">Quantidade de horas</string>
+    <string name="semanas">Semanas: </string>
+    <string name="dias">Dias: </string>
+    <string name="horas">Horas: </string>
+
+    <string name="par">É par</string>
+    <string name="impar">É impar</string>
+    <string name="primo">É primo</string>
+    <string name="naoprimo">Não é primo</string>
+
 </resources>

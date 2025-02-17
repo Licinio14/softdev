@@ -65,6 +65,23 @@ class FullscreenActivity : AppCompatActivity() {
             }
         }
 
+        binding.imageView5.setOnClickListener {
+            binding.menuSettings.visibility = View.VISIBLE
+            binding.menuSettings.animate().translationY(0F).setDuration(
+                resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()
+            )
+            binding.imageView5.visibility = View.GONE
+
+        }
+
+        binding.imageCloseSettings.setOnClickListener {
+            binding.menuSettings.visibility = View.GONE
+            binding.menuSettings.animate().translationY(binding.menuSettings.measuredHeight.toFloat()).setDuration(
+                resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()
+            )
+            binding.imageView5.visibility = View.VISIBLE
+        }
+
     }
 
 }

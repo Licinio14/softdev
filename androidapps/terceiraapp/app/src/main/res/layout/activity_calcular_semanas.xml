@@ -2,7 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+<<<<<<< Updated upstream
     android:id="@+id/layout"
+=======
+    android:id="@+id/pagina"
+>>>>>>> Stashed changes
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,32 +16,29 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Transformar horas em semanas, dias e horas."
-        android:fontFamily="sans-serif-black"
-        android:textSize="25sp"
-        android:gravity="center"
         android:layout_marginTop="80dp"
-        />
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/horas_text"
+        android:textSize="25sp" />
 
     <EditText
+        android:id="@+id/input_horas_para_semanas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Quantidade de horas"
-        android:gravity="center"
         android:layout_marginTop="80dp"
+        android:gravity="center"
+        android:hint="@string/inserir_horas"
         android:textSize="25sp"
-        android:textStyle="bold"
-        android:id="@+id/input_horas_para_semanas"
-        />
+        android:textStyle="bold" />
 
     <Button
+        android:id="@+id/btt_calcular_horas_para_semanas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calcular"
         android:layout_marginTop="40dp"
-        android:id="@+id/btt_calcular_horas_para_semanas"
-        android:textStyle="bold"
-        />
+        android:text="@string/submit"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,21 +51,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Semanas: "
             android:fontFamily="sans-serif-black"
-            android:textSize="20sp"
             android:gravity="start"
-            />
+            android:text="@string/semanas"
+            android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/resultado_horas_para_semanas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/resultado_horas_para_semanas"
-            android:textStyle="bold"
-            android:hint="semanas"
             android:fontFamily="sans-serif-black"
+            android:hint="0"
             android:textSize="20sp"
-            />
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -79,18 +78,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dias: "
             android:fontFamily="sans-serif-black"
-            android:textSize="20sp"
             android:gravity="start"
-            />
+            android:text="@string/dias"
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/resultado_horas_para_dias"
             android:textStyle="bold"
-            android:hint="dias"
+            android:hint="0"
             android:fontFamily="sans-serif-black"
             android:textSize="20sp"
             />
@@ -108,18 +106,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Horas: "
             android:fontFamily="sans-serif-black"
-            android:textSize="20sp"
             android:gravity="start"
-            />
+            android:text="@string/horas"
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/resultado_horas_para_horas"
             android:textStyle="bold"
-            android:hint="horas"
+            android:hint="0"
             android:fontFamily="sans-serif-black"
             android:textSize="20sp"
             />
@@ -127,13 +124,12 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btt_horas_para_semanas_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:id="@+id/btt_horas_para_semanas_home"
-        android:textStyle="bold"
-        android:text="Home"
-        />
+        android:text="@string/home"
+        android:textStyle="bold" />
 
 
 

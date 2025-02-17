@@ -1,6 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">terceiraapp</string>
+    <string name="app_name">LicinioApp</string>
     <string name="Hello_world">Hello World</string>
     <string name="Batery_lvl">Battery Level</string>
+
+    <string name="menu1">Pair and Cousins</string>
+    <string name="menu2">Hours -> Weeks</string>
+    <string name="menu3">Pass Variables</string>
+    <string name="menu4">Request Information</string>
+    <string name="menu5">Ask for numbers and calculate</string>
+    <string name="menu6">ListView</string>
+    <string name="menu7">Show Students</string>
+    <string name="menu8">Show an example page</string>
+    <string name="menu9">Insert and View notes</string>
+    <string name="menu10">Activity lifecycle</string>
+    <string name="menu11">Sound player</string>
+    <string name="menu12">Full screen</string>
+
+    <string name="menuName">Menu</string>
+    <string name="Welcome">Welcome</string>
+    <string name="login_text">Preencha o seu username e password para continuar</string>
+    <string name="user_name">Username:</string>
+    <string name="password">Password:</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="carregar">Loading</string>
+    <string name="home">Home</string>
+    <string name="voltar">Back</string>
+    <string name="limpar">Clean</string>
+
+    <string name="som1">Sound 1</string>
+    <string name="som2">Sound 2</string>
+    <string name="som3">Sound 3</string>
+    <string name="som4">Sound 4</string>
+
+    <string name="next">Next Page</string>
+    <string name="numero2">Second number</string>
+    <string name="numero1">First number</string>
+
+    <string name="nome">Name</string>
+    <string name="morada">Address</string>
+    <string name="telefone">Phone</string>
+    <string name="email">Email</string>
+    <string name="femenino">Female</string>
+    <string name="masculino">Male</string>
+    <string name="submit">Submit</string>
+
+    <string name="inserir_notas">Insert Note</string>
+    <string name="ver_notas">See Notes</string>
+    <string name="nota">Note</string>
+
+    <string name="inserir_numero">Enter a number</string>
+
+    <string name="numero">Insert number</string>
+
+    <string name="mudar_nome">Change name</string>
+
+    <string name="horas_text">Transform hours into weeks, days and hours.</string>
+    <string name="inserir_horas">Number of hours</string>
+    <string name="semanas">Weeks: </string>
+    <string name="dias">Days: </string>
+    <string name="horas">Hours: </string>
+
+    <string name="par">It\'s even</string>
+    <string name="impar">It is odd</string>
+    <string name="primo">It\'s cousin</string>
+    <string name="naoprimo">Not a cousin</string>
 </resources>

@@ -2,40 +2,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+<<<<<<< Updated upstream
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#D1D1D1"
+=======
+    android:id="@+id/pagina"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+>>>>>>> Stashed changes
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/ex4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:paddingTop="10dp"
+=======
+        android:layout_marginTop="0dp"
+>>>>>>> Stashed changes
         android:background="#2538cc"
+        android:fontFamily="cursive"
         android:gravity="center"
         android:minHeight="50dp"
-        android:text="04_Ex4"
+        android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="35sp"
-        android:fontFamily="cursive"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/bem_vindo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bem-Vindo"
-        android:id="@+id/bem_vindo"
         android:layout_marginTop="80dp"
         android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/Welcome"
         android:textColor="#2538cc"
         android:textSize="50sp"
-        android:gravity="center"
-        android:textStyle="bold|italic"
-        />
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/information"
@@ -43,8 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:gravity="center"
-        android:text="Preencha o seu username e password para continuar"
-        android:textColor="@color/black"
+        android:text="@string/login_text"
+
         android:textSize="20sp" />
 
     <LinearLayout
@@ -59,18 +69,18 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
-            android:text="Username: "
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:text="@string/user_name"
+            android:textSize="20sp"
+            tools:text="@string/user_name" />
 
         <EditText
             android:id="@+id/text_Username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Username"
-            android:minWidth="200dp"
-            android:textColor="@color/black" />
+            android:hint="@string/user_name"
+            android:inputType="text"
+            android:minWidth="200dp" />
 
     </LinearLayout>
 
@@ -86,8 +96,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
-            android:text="Password: "
-            android:textColor="@color/black"
+            android:text="@string/password"
             android:textSize="20sp" />
 
         <EditText
@@ -95,10 +104,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
-            android:minWidth="200dp"
-            android:textColor="@color/black" />
+            android:minWidth="200dp" />
 
     </LinearLayout>
 
@@ -116,7 +124,7 @@
         android:shadowDx="8"
         android:shadowDy="8"
         android:shadowRadius="10"
-        android:text="Resgistar"
+        android:text="@string/register"
         android:textColor="@color/white"
         app:cornerRadius="50px" />
 
@@ -133,7 +141,7 @@
         android:shadowDx="8"
         android:shadowDy="8"
         android:shadowRadius="10"
-        android:text="Entrar"
+        android:text="@string/login"
         android:textColor="@color/white"
         app:cornerRadius="50px" />
 

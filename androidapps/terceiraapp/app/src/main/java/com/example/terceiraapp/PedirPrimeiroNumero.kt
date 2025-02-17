@@ -16,7 +16,7 @@ class PedirPrimeiroNumero : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.bttMandarPrimeiroNumero.setOnClickListener {
+        binding.bttPedirPrimeiroNumero.setOnClickListener {
             var num1 = binding.inputPedirPrimeiroNumero.text.toString()
             if (num1 == ""){
                 Toast.makeText(this,"O campo é de preenchimento OBRIGATORIO!",Toast.LENGTH_SHORT).show()

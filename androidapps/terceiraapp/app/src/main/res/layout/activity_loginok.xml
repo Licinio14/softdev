@@ -2,7 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+<<<<<<< Updated upstream
     android:id="@+id/layout"
+=======
+    android:id="@+id/pagina"
+>>>>>>> Stashed changes
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -18,23 +22,21 @@
         />
 
     <EditText
+        android:id="@+id/par_impar_primo_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="numero"
-        android:inputType="number"
-        android:id="@+id/par_impar_primo_input"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        />
+        android:hint="@string/inserir_numero"
+        android:inputType="number" />
 
     <Button
+        android:id="@+id/btt_testar_par_impar_primo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Testar"
-        android:id="@+id/btt_testar_par_impar_primo"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        />
+        android:text="@string/submit" />
 
     <TextView
         android:layout_width="match_parent"
