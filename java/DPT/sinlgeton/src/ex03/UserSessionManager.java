@@ -1,5 +1,6 @@
 package ex03;
 
+import java.util.Date;
 import java.util.Random;
 
 public class UserSessionManager {
@@ -8,16 +9,28 @@ public class UserSessionManager {
     private int sessionToken;
     private String lastAccess;
 
-    private UserSessionManager( String lastAccess) {
+    private UserSessionManager() {
         this.sessionToken = createToken();
-        this.lastAccess = lastAccess;
+        this.lastAccess = getDateNow();
     }
 
-    public UserSessionManager getSession(String lastAccess){
+    public static UserSessionManager getSession(){
         if (session == null){
-            UserSessionManager session = new UserSessionManager(lastAccess);
+            session = new UserSessionManager();
         }
         return session;
+    }
+
+    public int getSessionToken() {
+        return sessionToken;
+    }
+
+    public String getLastAccess() {
+        return lastAccess;
+    }
+
+    public void setLastAccess() {
+        this.lastAccess = getDateNow();
     }
 
     private int createToken(){
@@ -28,5 +41,14 @@ public class UserSessionManager {
         }
 
         return Integer.parseInt(String.valueOf(token));
+    }
+
+    public void showLastAcces(){
+
+    }
+
+    private String getDateNow(){
+        //return String.valueOf(System.currentTimeMillis());
+        return String.valueOf(new Date());
     }
 }
