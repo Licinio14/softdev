@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistarUtilizador">
+    tools:context=".views.RegistarUtilizador">
 
     <EditText
         android:id="@+id/input_name_criar_usuario"

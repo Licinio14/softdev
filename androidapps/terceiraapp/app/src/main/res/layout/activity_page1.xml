@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    tools:context=".page1">
+    tools:context=".views.page1">
 
 
     <Button

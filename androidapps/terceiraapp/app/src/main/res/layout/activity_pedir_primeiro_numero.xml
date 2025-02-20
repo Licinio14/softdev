@@ -5,7 +5,7 @@
     android:id="@+id/pagina"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PedirPrimeiroNumero">
+    tools:context=".views.PedirPrimeiroNumero">
 
     <EditText
         android:id="@+id/input_pedir_primeiro_numero"

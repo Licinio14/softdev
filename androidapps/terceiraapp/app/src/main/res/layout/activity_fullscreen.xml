@@ -7,7 +7,7 @@
     android:padding="50dp"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.Terceiraapp.FullscreenContainer"
-    tools:context=".FullscreenActivity">
+    tools:context=".views.FullscreenActivity">
 
     <TextView
         android:id="@+id/text_nivel_bateria"

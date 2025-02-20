@@ -5,7 +5,7 @@
     android:id="@+id/pagina"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExMudarNomeForm">
+    tools:context=".views.ExMudarNomeForm">
 
     <Button
         android:id="@+id/btt_mudar_nome_ex_06"

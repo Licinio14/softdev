@@ -13,82 +13,85 @@
         android:theme="@style/Theme.Terceiraapp"
         tools:targetApi="31">
         <activity
-            android:name=".FullscreenActivity"
+            android:name=".views.RecicleView"
+            android:exported="false" />
+        <activity
+            android:name=".views.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:label="title_activity_fullscreen"
             android:theme="@style/Theme.Terceiraapp.Fullscreen" />
         <activity
-            android:name=".LifeCicle2"
+            android:name=".views.LifeCicle2"
             android:exported="false" />
         <activity
-            android:name=".LifeCicle1"
+            android:name=".views.LifeCicle1"
             android:exported="false" />
         <activity
-            android:name=".RelativeLayout"
+            android:name=".views.RelativeLayout"
             android:exported="false" />
         <activity
-            android:name=".PlayerDeSons"
+            android:name=".views.PlayerDeSons"
             android:exported="false" />
         <activity
-            android:name=".RegistarUtilizador"
+            android:name=".views.RegistarUtilizador"
             android:exported="false" />
         <activity
-            android:name=".VerNotas"
+            android:name=".views.VerNotas"
             android:exported="false" />
         <activity
-            android:name=".InserirNotas"
+            android:name=".views.InserirNotas"
             android:exported="false" />
         <activity
-            android:name=".MenuBlocoNotas"
+            android:name=".views.MenuBlocoNotas"
             android:exported="false" />
         <activity
-            android:name=".MostrarPaginaExemplo"
+            android:name=".views.MostrarPaginaExemplo"
             android:exported="false" />
         <activity
-            android:name=".MostrarInformacaoDoAluno"
+            android:name=".views.MostrarInformacaoDoAluno"
             android:exported="false" />
         <activity
-            android:name=".ExMostrarListaAlunos"
+            android:name=".views.ExMostrarListaAlunos"
             android:exported="false" />
         <activity
-            android:name=".ExercicioListView"
+            android:name=".views.ExercicioListView"
             android:exported="false" />
         <activity
-            android:name=".MostrarContasPrimeiroSegundoNumero"
+            android:name=".views.MostrarContasPrimeiroSegundoNumero"
             android:exported="false" />
         <activity
-            android:name=".PedirSegundoNumero"
+            android:name=".views.PedirSegundoNumero"
             android:exported="false" />
         <activity
-            android:name=".PedirPrimeiroNumero"
+            android:name=".views.PedirPrimeiroNumero"
             android:exported="false" />
         <activity
-            android:name=".MostrarInformacoesUser"
+            android:name=".views.MostrarInformacoesUser"
             android:exported="false" />
         <activity
-            android:name=".PedirInformacoesUser"
+            android:name=".views.PedirInformacoesUser"
             android:exported="false" />
         <activity
-            android:name=".ExMudarNomeForm"
+            android:name=".views.ExMudarNomeForm"
             android:exported="false" />
         <activity
-            android:name=".exMudarNomeHome"
+            android:name=".views.exMudarNomeHome"
             android:exported="false" />
         <activity
-            android:name=".CalcularSemanas"
+            android:name=".views.CalcularSemanas"
             android:exported="false" />
         <activity
-            android:name=".Menu"
+            android:name=".views.Menu"
             android:exported="false" />
         <activity
-            android:name=".LoginokActivity"
+            android:name=".views.LoginokActivity"
             android:exported="false" />
         <activity
-            android:name=".page1"
+            android:name=".views.page1"
             android:exported="false" />
         <activity
-            android:name=".splash"
+            android:name=".views.splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -97,7 +100,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".views.MainActivity"
             android:exported="true" />
     </application>
 

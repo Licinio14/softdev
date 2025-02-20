@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".views.MainActivity">
 
     <TextView
         android:id="@+id/ex4"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        tools:context=".MainActivity">
+        tools:context=".views.MainActivity">
 
         <TextView
             android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        tools:context=".MainActivity">
+        tools:context=".views.MainActivity">
 
         <TextView
             android:layout_width="wrap_content"

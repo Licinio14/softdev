@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MostrarPaginaExemplo">
+    tools:context=".views.MostrarPaginaExemplo">
 
     <Button
         android:id="@+id/btt_pagina_exemplo_home"

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".CalcularSemanas">
+    tools:context=".views.CalcularSemanas">
 
     <TextView
         android:layout_width="match_parent"
