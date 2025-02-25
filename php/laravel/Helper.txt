@@ -142,6 +142,9 @@ php artisan --version
 //testing para emails
 https://mailtrap.io/
 
+//ligar o server para a rede localização
+php artisan serve --host=0.0.0.0 --port=8000
+
 
 
 
